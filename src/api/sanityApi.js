@@ -6,7 +6,7 @@ const config = {
   apiVersion: "2023-02-08",
   useCdn: false,
 };
-const client = createClient(config);
+export const client = createClient(config);
 
 export async function fetchPage(pageName) {
   try {
@@ -32,13 +32,28 @@ export async function fetchPage(pageName) {
 
 export async function fetchProjects(amount) {
   try {
-    const projects = await client.fetch(
-      groq`*[_type == 'post']
-      | order(_createdAt desc)
-      | limit(${amount}})
-    `
+    const posts = await client.fetch(
+      groq`*[_type == 'post'] | order(_createdAt desc) {
+        heading,
+        paragraph,
+        'imageSrc': image.asset->url,
+        'imageAlt': alt,
+        content[] {
+          _key,
+          _type,
+          children[] {
+            _key,
+            _type,
+            marks,
+            text
+          },
+          markDefs,
+          style
+        }
+      }`
     );
-    return projects;
+    console.log(posts[0].content[0].children);
+    return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
     return null;

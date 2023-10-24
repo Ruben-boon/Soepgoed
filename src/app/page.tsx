@@ -4,7 +4,7 @@ import Hero from "./components/hero";
 import TextSingle from "./components/text-single";
 import TextAndImage from "./components/text-and-image";
 import Feature from "./components/feature";
-import { fetchPage } from "@/api/sanityApi";
+import { fetchPage, fetchProjects } from "@/api/sanityApi";
 
 const componentMapping = {
   textWithIllustration: TestComp,
@@ -18,7 +18,7 @@ const mapComponent = (type) => componentMapping[type];
 
 const Home: React.FC = async () => {
   const data = await fetchPage("Home");
-
+  const project = await fetchProjects(5);
   return (
     <main>
       {data &&

@@ -1,8 +1,6 @@
 import Image from "next/image";
 import styles from "./hero.module.scss";
 import { BlockProps } from "../interfaces/interfaces";
-import { urlForImage } from "../../../sanity/lib/image";
-import { urlFor } from "@/api/sanityApi";
 import Button from "./button";
 // import Button from "./button";
 

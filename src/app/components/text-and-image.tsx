@@ -8,7 +8,6 @@ export interface TextAndImageProps {
 }
 
 const TextAndImage: React.FC<TextAndImageProps> = ({ content }) => {
-    console.log("content", content)
   return (
     <div className={styles.textAndImage}>
       <div
