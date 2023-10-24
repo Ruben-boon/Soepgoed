@@ -1,0 +1,40 @@
+.carousel {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  padding-right: 0;
+}
+.carouselContainer {
+  gap: 80px;
+  flex-direction: column;
+}
+.textGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  h2 {
+    flex: 1;
+  }
+  .buttonContainer {
+    flex: 1;
+  }
+}
+.swiperContainer {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .carouselContainer {
+    padding: 0 0 0 16px;
+  }
+  .titleContainer {
+    h2 {
+      font-size: 24px;
+    }
+  }
+  .swiperSlide{
+    width:90%;
+    margin-left: 0;
+  }
+}

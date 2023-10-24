@@ -1,95 +1,45 @@
-import Image from 'next/image'
-import styles from './page.module.css'
 
-export default function Home() {
+import TestComp from "./components/test-comp";
+import Hero from "./components/hero";
+import TextSingle from "./components/text-single";
+import TextAndImage from "./components/text-and-image";
+import Feature from "./components/feature";
+import { fetchPage } from "@/api/sanityApi";
+
+const componentMapping = {
+  textWithIllustration: TestComp,
+  hero: Hero,
+  textSingle: TextSingle,
+  textAndImage: TextAndImage,
+  feature: Feature
+};
+// @ts-ignore
+const mapComponent = (type) => componentMapping[type];
+
+const Home: React.FC = async () => {
+  const data = await fetchPage("Home");
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main>
+      {data &&
+        // @ts-ignore
+        data.map((dataItem) => {
+          const Component = mapComponent(dataItem._type);
+          if (Component) {
+            return <Component key={dataItem._key} content={dataItem} />;
+          } else {
+            console.log(
+              "_type: " +
+                dataItem._type +
+                " doenst have a component mapped to it, check componentMapping in index.tsx, nothing is rendered however so you can also just ignore this message if everything functions well"
+            );
+            return;
+          }
+        })}
+      {/*
+      {hp_content.carousel && <Carousel content={hp_content.carousel} />} */}
     </main>
-  )
-}
+  );
+};
+
+export default Home;

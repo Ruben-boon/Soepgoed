@@ -1,0 +1,60 @@
+.feature {
+  position: relative;
+  padding: 260px 0 80px 0;
+  margin: 160px 0 64px 0;
+  width:100%;
+}
+.textGroup {
+  background-color: var(--background-fourth);
+  border-radius: var(--corner-radius);
+  color: var(--text-light);
+  padding: 32px;
+}
+
+//angled background and veggies
+.feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+  transform-origin: 0 0;
+  background: url(../../../public/Veggies.webp) no-repeat;
+  background-size: 1000px;
+  background-position: right 50px top -50px;
+  background-color: #d95d39;
+}
+//veggies ontop of the border
+.feature::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../../public/pappep.webp) no-repeat;
+  background-size: 280px;
+  background-position: right 520px top 0px;
+  z-index: 1;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .feature {
+    margin-top: 64px;
+    padding-top: 160px;
+  }
+  .feature::before {
+    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+    background-size: 800px;
+    background-position: right -104px top -50px;
+  }
+  .feature::after {
+    background-size: 220px;
+    background-position: right 270px top 0px;
+  }
+}

@@ -1,0 +1,36 @@
+.primary {
+    background-color: var(--button-primary);
+    color: var(--button-primary-text);
+    color:white;
+    &:hover,
+    &:focus {
+      background-color: var(--button-primary-hover);
+    }
+}
+.secondary {
+    background-color: var(--button-secondary);
+    color: var(--button-secondary-text);
+    &:hover,
+    &:focus {
+      background-color: var(--button-secondary-hover);
+    }
+}
+
+.outline {
+  background-color: white;
+  // border: 1px solid var(--button-outline);
+  // box-shadow: var(--button-outline-shadow);
+  color: var(--button-outline-text);
+  &:hover,
+  &:focus {
+    background-color: var(--button-outline-hover);
+    border:1px solid var(--button-outline-hover);
+    color: var(--button-outline-hover-text);
+  }
+}
+@media screen and (max-width: 768px) {
+    .outline {
+      pointer-events: none;
+  }
+}
+  

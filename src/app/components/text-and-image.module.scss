@@ -1,0 +1,30 @@
+.textAndImage {
+    margin: 64px 0 64px 0;
+    width:100%;
+  }
+  .textAndImageContainer {
+    gap: 104px;
+  }
+  .textGroup {
+    flex: 1;
+  }
+  .image {
+    position: relative;
+    align-self: stretch;
+    flex: 1;
+    height: 400px;
+    img {
+      border-radius: var(--corner-radius);
+    }
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .textAndImageContainer{
+      gap:32px;
+      margin: 64x 0 64px 0;
+    }
+    .image {
+      flex: 0 1 auto
+    }
+  }
+  
