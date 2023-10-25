@@ -8,7 +8,7 @@ const config = {
 };
 export const client = createClient(config);
 
-export async function fetchPage(pageName) {
+export async function fetchPage(pageName: string) {
   try {
     const pageData = await client.fetch(
       groq`*[_type == 'page' && title == '${pageName}'][0].pageBuilder[] {
@@ -30,14 +30,15 @@ export async function fetchPage(pageName) {
   }
 }
 
-export async function fetchProjects(amount) {
+export async function fetchPosts(amount: number) {
   try {
     const posts = await client.fetch(
       groq`*[_type == 'post'] | order(_createdAt desc) {
+        '_key': _rev,
         heading,
-        paragraph,
         'imageSrc': image.asset->url,
         'imageAlt': alt,
+        _createdAt,
         content[] {
           _key,
           _type,
@@ -52,7 +53,6 @@ export async function fetchProjects(amount) {
         }
       }`
     );
-    console.log(posts[0].content[0].children);
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);

@@ -17,12 +17,10 @@ export interface Button {
 }
 
 export interface PostProps {
+  _key?: string;
   heading?: string;
-  paragraph?: string;
-  author?: {} | undefined;
-  thumbnail?: {
-    data?: any[] | undefined;
-  };
-  createdAt?: string;
-  publishedAt?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  content?: [];
+  _createdAt?: string;
 }

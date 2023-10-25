@@ -1,5 +1,5 @@
-.header{
-  width:100%;
+.header {
+  width: 100%;
 }
 .heading {
   font-size: 48px;
@@ -7,14 +7,14 @@
 }
 .textGroup {
   padding: 96px;
-  background: rgb(229, 237, 195);
-  background: linear-gradient(
-    330deg,
-    rgba(229, 237, 195, 0) 0%,
-    rgba(229, 237, 195, 1) 100%
-  );
+  background-color: #00473b;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 0 200px 0 200px;
   flex: 1;
+
+  * {
+    color: white;
+  }
 }
 .paragraph {
   font-size: 18px;

@@ -4,21 +4,24 @@ import Hero from "./components/hero";
 import TextSingle from "./components/text-single";
 import TextAndImage from "./components/text-and-image";
 import Feature from "./components/feature";
-import { fetchPage, fetchProjects } from "@/api/sanityApi";
+import { fetchPage } from "@/api/sanityApi";
+import Carousel from "./components/carousel";
 
 const componentMapping = {
   textWithIllustration: TestComp,
   hero: Hero,
   textSingle: TextSingle,
   textAndImage: TextAndImage,
-  feature: Feature
+  feature: Feature,
+  carousel: Carousel,
 };
 // @ts-ignore
 const mapComponent = (type) => componentMapping[type];
 
 const Home: React.FC = async () => {
   const data = await fetchPage("Home");
-  const project = await fetchProjects(5);
+
+
   return (
     <main>
       {data &&
@@ -36,8 +39,6 @@ const Home: React.FC = async () => {
             return;
           }
         })}
-      {/*
-      {hp_content.carousel && <Carousel content={hp_content.carousel} />} */}
     </main>
   );
 };
