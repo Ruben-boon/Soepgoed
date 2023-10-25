@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import NavMenu from "./components/nav-menu";
-import logoSrc from "../../public/logoSG.svg";
+import logoSrc from "../../../public/logoSG.svg";
 import Footer from "./components/footer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,8 +31,13 @@ export default async function RootLayout({
     },
     footerSettings: {
       banner: true,
-      heading: "Test heading",
-      paragraph: "lorem ipsum dolor sit amet",
+      heading: "Wil je ons ook helpen?",
+      paragraph: "Jouw donatie stelt ons in staat om verse ingrediënten te verkrijgen, onze keuken draaiende te houden en de maaltijden aan te bieden aan mensen die het minder breed hebben.",
+      buttonGroup: {
+          buttonLink: "/haihai",
+          buttonText: "Doneer nu",
+          buttonVariant: "secondary" ,
+      }
     },
     contactInfo: {
       companyName: "Contact us",

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./footer.module.scss";
-import facebook from "../../../public/facebook.svg";
-import instagram from "../../../public/instagram.svg";
-import linkedIn from "../../../public/linkedIn.svg";
+import facebook from "../../../../public/facebook.svg";
+import instagram from "../../../../public/instagram.svg";
+import linkedIn from "../../../../public/linkedIn.svg";
+import Button from "./button";
 
 type FooterProps = {
   menuAr: { url: string; label: string }[];
@@ -60,7 +61,15 @@ const Footer = ({ menuAr, settings }: FooterProps) => {
         </div>
       </div>
       {settings.footerSettings.banner && (
-        <div className={`${styles.bannerContainer} ${"container"}`}></div>
+        <div className={`${styles.bannerContainer} ${"container"}`}>
+          <div className={styles.textGroup}>
+            <h2>{settings.footerSettings.heading}</h2>
+            <p>{settings.footerSettings.paragraph}</p>
+          </div>
+          {settings.footerSettings.buttonGroup && (
+            <Button content={settings.footerSettings.buttonGroup} />
+          )}
+        </div>
       )}
       <div className={`${styles.crsContainer} ${"container"}`}>
         <p>{settings.contactInfo.copyRight}</p>

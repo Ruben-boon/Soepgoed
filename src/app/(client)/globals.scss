@@ -87,13 +87,13 @@
   --background-eight: #FFFCF1;
   --background-nine: #E5EDC3;
 
-
   //text
   --text-primary: black;
   --text-secondary: rgb(219, 219, 219);
   --text-light: white;
 
   --corner-radius: 24px;
+
   //buttons 
   --button-corner-radius: 2px;
 
@@ -112,40 +112,6 @@
   --button-outline-shadow: box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --foreground-rgb: 255, 255, 255;
-//     --background-start-rgb: 0, 0, 0;
-//     --background-end-rgb: 0, 0, 0;
-
-//     --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-//     --secondary-glow: linear-gradient(
-//       to bottom right,
-//       rgba(1, 65, 255, 0),
-//       rgba(1, 65, 255, 0),
-//       rgba(1, 65, 255, 0.3)
-//     );
-
-//     --tile-start-rgb: 2, 13, 46;
-//     --tile-end-rgb: 2, 5, 19;
-//     --tile-border: conic-gradient(
-//       #ffffff80,
-//       #ffffff40,
-//       #ffffff30,
-//       #ffffff20,
-//       #ffffff10,
-//       #ffffff10,
-//       #ffffff80
-//     );
-
-//     --callout-rgb: 20, 20, 20;
-//     --callout-border-rgb: 108, 108, 108;
-//     --card-rgb: 100, 100, 100;
-//     --card-border-rgb: 200, 200, 200;
-//   }
-// }
-
-// typography
 p,
 a,
 strong,
@@ -167,7 +133,6 @@ small {
   font-kerning: normal;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
-  // color: var(--text-primary);
 }
 h1,
 h2,
@@ -193,7 +158,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
 body {
   background-color: var(--background-eight);
   position: relative;
@@ -209,16 +173,7 @@ a {
   text-decoration: none;
   color: var(--primary-link);
 }
-
-
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-// }

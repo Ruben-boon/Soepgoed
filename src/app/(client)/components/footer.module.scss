@@ -1,13 +1,14 @@
 .footer {
   background-color: #00473b;
   position: relative;
-  padding-top: 64px;
+  padding-top: 152px;
+  margin-top: 176px;
   padding-bottom: 48px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   a,
-  p {
+  p, h1, h2, h3, h4 {
     color: white;
   }
 }
@@ -36,8 +37,31 @@
   display: flex;
   gap: 16px;
 }
+.bannerContainer {
+  position: absolute;
+  background-color: #60A561;
+  bottom:100%;
+  left:50%;
+  transform: translate(-50%, 50%);
+  z-index: 100;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: var(--corner-radius);
+  box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 15px;
+}
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+}
 
 @media only screen and (max-width: 767px) {
+  .footer {
+    padding-top: 208px;
+  }
   .image {
     display: none;
   }

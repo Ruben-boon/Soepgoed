@@ -9,9 +9,10 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ content }) => {
+  console.log(content, "from button");
   return (
     <>
-      {content.buttonToggle && (
+      {content.buttonLink && content.buttonText && (
         <Link
           href={`${content.buttonLink}`}
           className={`${"button"} ${content.buttonVariant}`}
