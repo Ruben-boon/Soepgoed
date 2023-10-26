@@ -9,7 +9,6 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ content }) => {
-  console.log(content, "from button");
   return (
     <>
       {content.buttonLink && content.buttonText && (

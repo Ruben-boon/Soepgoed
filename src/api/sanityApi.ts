@@ -8,10 +8,10 @@ const config = {
 };
 export const client = createClient(config);
 
-export async function fetchPage(pageName: string) {
+export async function fetchPage(pageUrl: string) {
   try {
     const pageData = await client.fetch(
-      groq`*[_type == 'page' && title == '${pageName}'][0].pageBuilder[] {
+      groq`*[_type == 'page' && urlSlug.current == '${pageUrl}'][0].pageBuilder[] {
         _type,
         _key,
         heading,
@@ -23,6 +23,7 @@ export async function fetchPage(pageName: string) {
         textPosition
       }`
     );
+    console.log(pageData);
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);

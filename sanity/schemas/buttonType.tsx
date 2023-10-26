@@ -29,9 +29,10 @@ export const buttonType = defineField({
     }),
     defineField({
       name: "buttonLink",
-      type: "string",
+      type: "reference",
+      to: [{ type: "page"}],
       title: "Button link",
-      description: "/example-page",
+      description: "Select a page to link to",
       hidden: ({ parent }) => parent?.buttonToggle === false,
       // @ts-ignore
       validation: (Rule) =>
@@ -55,6 +56,7 @@ export const buttonType = defineField({
           { title: "Secondary", value: "secondary" },
           { title: "Outline", value: "outline" },
         ],
+        layout: "radio",
       },
     }),
   ],
