@@ -1,5 +1,5 @@
 export default {
-  name: "nabSubtype",
+  name: "navSubtype",
   title: "Menu Settings",
   type: "document",
   fields: [

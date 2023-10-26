@@ -19,7 +19,7 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
   return (
     <nav className={styles.nav}>
       <div className={`${styles.navContainer} ${"container"}`}>
-        <Link href="/" className={styles.image}>
+        <Link href="/" className={styles.image} >
           <Image
             src={settings.navSettings.logoSrc}
             alt={"Logo van soepgoed"}

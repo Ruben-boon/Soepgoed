@@ -1,13 +1,11 @@
+import { fetchPage } from "@/api/sanityApi";
 import { mapComponent } from "../componentMap";
 
-const Page = ({params}: {params: {id:string}}) => { 
-    //@ts-ignore
-    const data = [];
+const Page = async ({params}: {params: {id:string}}) => { 
+    const data = await fetchPage(`${params.id}`); 
 
     return (
         <main>
-            <p>id: {params.id}</p>
-            {/* @ts-ignore */}
           {data &&
             // @ts-ignore
             data.map((dataItem) => {

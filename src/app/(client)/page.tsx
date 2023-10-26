@@ -4,8 +4,7 @@ import { mapComponent } from "./componentMap";
 
 const Home: React.FC = async () => {
   const data = await fetchPage("home"); 
-  // @ts-ignore
-  // const data=[];
+
   return (
     <main>
       {data &&

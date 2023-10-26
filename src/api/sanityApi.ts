@@ -18,12 +18,21 @@ export async function fetchPage(pageUrl: string) {
         paragraph,
         'imageSrc': imageGroup.image.asset->url,
         'imageAlt': imageGroup.alt,
-        buttonGroup,
-        buttonGroupTwo,
+        'buttonGroup': {
+          'buttonText': buttonGroup.buttonText,
+          'buttonToggle': buttonGroup.buttonToggle,
+          'buttonVariant': buttonGroup.buttonVariant,
+          'buttonLink': buttonGroup.buttonLink->urlSlug.current
+        },
+        'buttonGroupTwo': {
+          'buttonText': buttonGroup.buttonText,
+          'buttonToggle': buttonGroup.buttonToggle,
+          'buttonVariant': buttonGroup.buttonVariant,
+          'buttonLink': buttonGroup.buttonLink->urlSlug.current
+        },
         textPosition
       }`
     );
-    console.log(pageData);
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);
@@ -52,6 +61,29 @@ export async function fetchPosts(amount: number) {
           markDefs,
           style
         }
+      }`
+    );
+    return posts;
+  } catch (error) {
+    console.error("Error fetching projects data:", error);
+    return null;
+  }
+}
+
+export async function fetchSettings() {
+  try {
+    const posts = await client.fetch(
+      groq`*[_type in ['navSubtype',]][0] {
+        menu[]->{
+          "label": title,
+          "_key": _id,
+          "url": urlSlug.current
+        },
+        'metaData': {
+          "title": *[_type == 'settingsSubType'][0].title,
+          "description": *[_type == 'settingsSubType'][0].description
+        },
+
       }`
     );
     return posts;

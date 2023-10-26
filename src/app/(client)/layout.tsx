@@ -4,6 +4,7 @@ import "./globals.scss";
 import NavMenu from "./components/nav-menu";
 import logoSrc from "../../../public/logoSG.svg";
 import Footer from "./components/footer";
+import { fetchSettings } from "@/api/sanityApi";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,11 +19,9 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const testAr = [
-    { url: "test-one", label: "test one", _key: "1" },
-    { url: "test-two", label: "test two", _key: "2" },
-    { url: "test-three", label: "test three", _key: "3" },
-  ];
+  const settingsData = await fetchSettings();
+  console.log(settingsData);
+
   const testSettings = {
     navSettings: {
       logoSrc: logoSrc,
@@ -55,9 +54,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavMenu settings={testSettings} menuAr={testAr} />
+        {/* <NavMenu settings={testSettings} menuAr={menuData.menu} /> */}
         {children}
-        <Footer settings={testSettings} menuAr={testAr} />
+        {/* <Footer settings={testSettings} menuAr={menuData.menu} /> */}
       </body>
     </html>
   );
