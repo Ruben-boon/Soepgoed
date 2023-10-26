@@ -22,7 +22,7 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
         <Link href="/" className={styles.image}>
           <Image
             src={settings.navSettings.logoSrc}
-            alt={settings.navSettings.logoAlt}
+            alt={"Logo van soepgoed"}
             width={80}
             height={80}
             style={{ objectFit: "contain" }}

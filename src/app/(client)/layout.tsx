@@ -48,7 +48,7 @@ export default async function RootLayout({
       companyInstagram: "https://www.instagram.com/",
       companyFacebook: "https://www.facebook.com/",
       companyLinkedIn: "https://www.linkedin.com/",
-      copyRight: "© 2021",
+      copyright: "© 2021",
     },
   };
 
