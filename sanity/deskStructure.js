@@ -4,7 +4,7 @@ export const myStructure = (S) =>
     .items([
       ...S.documentTypeListItems().filter(
         (listItem) =>
-          !["settingsSubType", "footerSubType", "navSubtype", "contactSubType"].includes(
+          !["settingsSubType", "footerSubType", "navSubType", "contactSubType", "metaDataSubType"].includes(
             listItem.getId()
           )
       ),
@@ -23,17 +23,17 @@ export const myStructure = (S) =>
                 .title("Metadata")
                 .child(
                   S.document()
-                    .schemaType("settingsSubType")
+                    .schemaType("metaDataSubType")
                     .title("Metadata settings")
-                    .documentId("settingsSubType")
+                    .documentId("metaDataSubType")
                 ),
               S.listItem()
                 .title("Navigation")
                 .child(
                   S.document()
-                    .schemaType("navSubtype")
+                    .schemaType("navSubType")
                     .title("Navigation settings")
-                    .documentId("navSubtype")
+                    .documentId("navSubType")
                 ),
               S.listItem()
                 .title("Footer")

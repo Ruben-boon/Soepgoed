@@ -73,18 +73,49 @@ export async function fetchPosts(amount: number) {
 export async function fetchSettings() {
   try {
     const posts = await client.fetch(
-      groq`*[_type in ['navSubtype',]][0] {
-        menu[]->{
-          "label": title,
-          "_key": _id,
-          "url": urlSlug.current
+      groq`[
+        *[_type == "metaDataSubType"] | order(_createdAt asc) [0] {
+          "metaData": {
+            "title": title,
+              "paragraph": paragraph
+          }
         },
-        'metaData': {
-          "title": *[_type == 'settingsSubType'][0].title,
-          "description": *[_type == 'settingsSubType'][0].description
+        *[_type == "contactSubType"] | order(_createdAt asc) [0] {
+          "contactInfo": {
+            "companyName": companyName,
+            "companyStreet": companyStreet,
+            "companyPostal": companyPostal,
+            "companyPhone": companyPhone,
+            "companyEmail": companyEmail,
+            "companyInstagram": companyInstagram,
+            "companyFacebook": companyFacebook,
+            "companyLinkedIn": companyLinkedIn,
+              "copyright": copyright
+          }
         },
-
-      }`
+        *[_type == "footerSubType"] | order(_createdAt asc) [0] {
+          "footerSettings": {
+            "banner": bannerToggle,
+            "heading": heading,
+            "paragraph": paragraph,
+            "buttonGroup": {
+              "buttonText": buttonGroup.buttonText,
+              "buttonToggle": buttonGroup.buttonToggle,
+              "buttonVariant": buttonGroup.buttonVariant,
+              "buttonLink": buttonGroup.buttonLink->urlSlug.current
+            }
+          }
+        },
+        *[_type == "navSubType"] {
+          "menu": menu[]->{
+            "label": title,
+            "_key": _id,
+            "url": urlSlug.current
+          },
+            "logoSrc": image.asset->url,
+            "button": button,
+        }
+      ]`
     );
     return posts;
   } catch (error) {
