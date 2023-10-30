@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Work+Sans:wght@400;500;600;700;900&display=swap');
 @import "./styles/classes";
 
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -124,8 +125,7 @@ pre,
 code,
 em,
 small {
-  font-family: "Manrope", sans-serif;
-  font-weight: 400;
+  font-family: var(--font-manrope);
   font-size: 16px;
   line-height: 25px;
   letter-spacing: 0.2px;
@@ -139,14 +139,14 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Lambda", sans-serif;
-  font-weight: 700;
-  font-size: 32px;
+  font-family: var(--font-lambda);
+  // font-weight: 700;
+  font-size: 36px;
   // margin-bottom: 0.6em;
-  line-height: 36px;
+  line-height: 38px;
   letter-spacing: 0;
   word-wrap: break-word;
-  // color: var(--text-primary);
+
 }
 * {
   box-sizing: border-box;
@@ -170,10 +170,7 @@ ol {
   margin: 0;
 }
 a {
+  
   text-decoration: none;
   color: var(--primary-link);
-}
-a {
-  color: inherit;
-  text-decoration: none;
 }

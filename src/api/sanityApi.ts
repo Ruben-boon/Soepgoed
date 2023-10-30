@@ -77,7 +77,7 @@ export async function fetchSettings() {
         *[_type == "metaDataSubType"] | order(_createdAt asc) [0] {
           "metaData": {
             "title": title,
-              "paragraph": paragraph
+              "description": description
           }
         },
         *[_type == "contactSubType"] | order(_createdAt asc) [0] {
@@ -112,8 +112,12 @@ export async function fetchSettings() {
             "_key": _id,
             "url": urlSlug.current
           },
+        },
+        *[_type == "navSubType"] | order(_createdAt asc) [0] {
+          "navSettings": {
             "logoSrc": image.asset->url,
             "button": button,
+          }
         }
       ]`
     );
@@ -122,4 +126,31 @@ export async function fetchSettings() {
     console.error("Error fetching projects data:", error);
     return null;
   }
+}
+
+export function formatSettingsData(dataArray: any[]) {
+  const extractedData = {
+    metadata: {},
+    contactInfo: {},
+    footerSettings: {},
+    navSettings: {
+    },
+    menu: [],
+  };
+
+  for (const item of dataArray) {
+    if (item.metaData) {
+      extractedData.metadata = item.metaData;
+    } else if (item.contactInfo) {
+      extractedData.contactInfo = item.contactInfo;
+    } else if (item.footerSettings) {
+      extractedData.footerSettings = item.footerSettings;
+    } else if (item.navSettings) {
+      extractedData.navSettings = item.navSettings;
+    } else if (Array.isArray(item) && item[0].menu) {
+      extractedData.menu = item[0].menu;
+    }
+  }
+
+  return extractedData;
 }

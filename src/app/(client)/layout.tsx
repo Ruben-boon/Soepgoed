@@ -2,35 +2,28 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.scss";
 import NavMenu from "./components/nav-menu";
-import logoSrc from "../../../public/logoSG.svg";
 import Footer from "./components/footer";
-import { fetchSettings } from "@/api/sanityApi";
+import { fetchSettings, formatSettingsData } from "@/api/sanityApi";
+import { Capriola } from "next/font/google";
+import localFont from "@next/font/local";
 
+const capriola = Capriola({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-capriola",
+});
+// const manrope = Manrope({
+//   subsets: ["latin"],
+//   weight: "400",
+//   variable: "--font-manrope",
+// });
+const lambda = localFont({
+  src: "../../../fonts/Lambda-Regular.ttf",
+  weight: "400",
+  variable: "--font-lambda",
+});
 
 const inter = Inter({ subsets: ["latin"] });
-
-function formatData(dataArray: any[]) {
-  const extractedData = {
-    metadata: {},
-    contactinfo: {},
-    footerSettings: {},
-    menu: [],
-  };
-
-  for (const item of dataArray) {
-    if (item.metaData) {
-      extractedData.metadata = item.metaData;
-    } else if (item.contactInfo) {
-      extractedData.contactinfo = item.contactInfo;
-    } else if (item.footerSettings) {
-      extractedData.footerSettings = item.footerSettings;
-    } else if (Array.isArray(item) && item[0].menu) {
-      extractedData.menu = item[0].menu;
-    }
-  }
-
-  return extractedData;
-}
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -42,45 +35,23 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const settingsData = await fetchSettings();
-  const formattedData = formatData(settingsData);
-  console.log(formattedData);
-
-  const testSettings = {
-    navSettings: {
-      logoSrc: logoSrc,
-      logoAlt: "test",
-      button: "primary",
-    },
-    footerSettings: {
-      banner: true,
-      heading: "Wil je ons ook helpen?",
-      paragraph: "Jouw donatie stelt ons in staat om verse ingrediënten te verkrijgen, onze keuken draaiende te houden en de maaltijden aan te bieden aan mensen die het minder breed hebben.",
-      buttonGroup: {
-          buttonLink: "/haihai",
-          buttonText: "Doneer nu",
-          buttonVariant: "secondary" ,
-      }
-    },
-    contactInfo: {
-      companyName: "Contact us",
-      companyStreet: "123 test street",
-      companyPostal: "12345 Leiden",
-      companyPhone: "123456789",
-      companyEmail: "test@email.nl",
-      companyInstagram: "https://www.instagram.com/",
-      companyFacebook: "https://www.facebook.com/",
-      companyLinkedIn: "https://www.linkedin.com/",
-      copyright: "© 2021",
-    },
-  };
+  const data = await fetchSettings();
+  const settingsData = formatSettingsData(data);
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${capriola.variable} ${lambda.variable}`}>
       <body className={inter.className}>
-        {/* <NavMenu settings={testSettings} menuAr={menuData.menu} /> */}
+        <NavMenu
+          settings={settingsData.navSettings}
+          menuAr={settingsData.menu}
+        />
         {children}
-        {/* <Footer settings={testSettings} menuAr={menuData.menu} /> */}
+        <Footer
+          settings={settingsData.footerSettings}
+          contactInfo={settingsData.contactInfo}
+          logo={settingsData.navSettings}
+          menuAr={settingsData.menu}
+        />
       </body>
     </html>
   );

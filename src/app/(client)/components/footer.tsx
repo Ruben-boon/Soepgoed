@@ -9,25 +9,47 @@ import Button from "./button";
 type FooterProps = {
   menuAr: { url: string; label: string }[];
   settings: {
-    navSettings: any;
-    footerSettings: any;
-    contactInfo: any;
+    banner?: true;
+    heading?: string;
+    paragraph?: string;
+    buttonGroup?: {
+      buttonText: string;
+      buttonToggle: true;
+      buttonVariant: "primary" | "secondary";
+      buttonLink: string;
+    };
+  };
+  logo?: {
+    logoSrc?: string;
+  };
+  contactInfo: {
+    companyName?: string;
+    companyStreet?: string;
+    companyPostal?: string;
+    companyPhone?: string;
+    companyEmail?: string;
+    companyInstagram?: string;
+    companyFacebook?: string;
+    companyLinkedIn?: string;
+    copyright?: string;
   };
 };
 
-const Footer = ({ menuAr, settings }: FooterProps) => {
+const Footer = ({ menuAr, settings, contactInfo, logo }: FooterProps) => {
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footerContainer} ${"container"}`}>
-        <Link href="/" className={styles.image}>
-          <Image
-            src={settings.navSettings.logoSrc}
-            alt={settings.navSettings.logoAlt}
-            width={160}
-            height={160}
-            style={{ objectFit: "contain" }}
-          />
-        </Link>
+        {logo && logo.logoSrc && (
+          <Link href="/" className={styles.image}>
+            <Image
+              src={logo.logoSrc}
+              alt={"Logo van soepgoed"}
+              width={160}
+              height={160}
+              style={{ objectFit: "contain" }}
+            />
+          </Link>
+        )}
         <div className={`${styles.linkGroup}`}>
           {menuAr &&
             menuAr.length > 0 &&
@@ -43,39 +65,27 @@ const Footer = ({ menuAr, settings }: FooterProps) => {
         </div>
         <span></span>
         <div className={styles.contactGroup}>
-          {settings.contactInfo.companyName && (
-            <p>{settings.contactInfo.companyName}</p>
-          )}
-          {settings.contactInfo.companyStreet && (
-            <p>{settings.contactInfo.companyStreet}</p>
-          )}
-          {settings.contactInfo.companyPostal && (
-            <p>{settings.contactInfo.companyPostal}</p>
-          )}
-          {settings.contactInfo.companyEmail && (
-            <p>{settings.contactInfo.companyEmail}</p>
-          )}
-          {settings.contactInfo.companyPhone && (
-            <p>{settings.contactInfo.companyPhone}</p>
-          )}
+          {contactInfo.companyName && <p>{contactInfo.companyName}</p>}
+          {contactInfo.companyStreet && <p>{contactInfo.companyStreet}</p>}
+          {contactInfo.companyPostal && <p>{contactInfo.companyPostal}</p>}
+          {contactInfo.companyEmail && <p>{contactInfo.companyEmail}</p>}
+          {contactInfo.companyPhone && <p>{contactInfo.companyPhone}</p>}
         </div>
       </div>
-      {settings.footerSettings.banner && (
+      {settings.banner && (
         <div className={`${styles.bannerContainer} ${"container"}`}>
           <div className={styles.textGroup}>
-            <h2>{settings.footerSettings.heading}</h2>
-            <p>{settings.footerSettings.paragraph}</p>
+            <h2>{settings.heading}</h2>
+            <p>{settings.paragraph}</p>
           </div>
-          {settings.footerSettings.buttonGroup && (
-            <Button content={settings.footerSettings.buttonGroup} />
-          )}
+          {settings.buttonGroup && <Button content={settings.buttonGroup} />}
         </div>
       )}
       <div className={`${styles.crsContainer} ${"container"}`}>
-        <p>{settings.contactInfo.copyRight}</p>
+        <p>{contactInfo.copyright}</p>
         <div className={styles.socialGroup}>
-          {settings.contactInfo.companyFacebook && (
-            <a href={settings.contactInfo.companyFacebook}>
+          {contactInfo.companyFacebook && (
+            <a href={contactInfo.companyFacebook}>
               <Image
                 src={facebook}
                 alt={"facebook icon"}
@@ -85,8 +95,8 @@ const Footer = ({ menuAr, settings }: FooterProps) => {
               />
             </a>
           )}
-          {settings.contactInfo.companyInstagram && (
-            <a href={settings.contactInfo.companyInstagram}>
+          {contactInfo.companyInstagram && (
+            <a href={contactInfo.companyInstagram}>
               <Image
                 src={instagram}
                 alt={"instagram icon"}
@@ -96,8 +106,8 @@ const Footer = ({ menuAr, settings }: FooterProps) => {
               />
             </a>
           )}
-          {settings.contactInfo.companyLinkedIn && (
-            <a href={settings.contactInfo.companyLinkedIn}>
+          {contactInfo.companyLinkedIn && (
+            <a href={contactInfo.companyLinkedIn}>
               <Image
                 src={linkedIn}
                 alt={"linkedin icon"}

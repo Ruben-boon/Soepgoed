@@ -7,15 +7,23 @@
 }
 .textGroup {
   padding: 96px;
-  background-color: #00473b;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #dfebd4;
   border-radius: 0 200px 0 200px;
   flex: 1;
-
-  * {
-    color: white;
-  }
+  position: relative;
 }
+.textGroup:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: 20px;
+  left: -16px;
+  right: 16px;
+  border: 2px solid #00473b;
+  border-radius: 0 200px 0 200px;
+  z-index: 1; /* Ensure the new element appears on top of .textGroup */
+}
+
 .paragraph {
   font-size: 18px;
   line-height: 27px;
@@ -27,6 +35,7 @@
   height: 700px;
   margin-left: -140px;
   flex: 1;
+  z-index: 2;
 }
 //tablet
 @media only screen and (max-width: 917px) {
