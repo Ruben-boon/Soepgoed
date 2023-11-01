@@ -1,5 +1,6 @@
 import { fetchPage } from "@/api/sanityApi";
 import { mapComponent } from "../componentMap";
+import Form from "../components/form";
 
 const Page = async ({params}: {params: {id:string}}) => { 
     const data = await fetchPage(`${params.id}`); 
@@ -21,6 +22,7 @@ const Page = async ({params}: {params: {id:string}}) => {
                 return;
               }
             })}
+            <Form></Form>
         </main>
       );
 }
