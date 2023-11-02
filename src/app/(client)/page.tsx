@@ -1,9 +1,9 @@
-
 import { fetchPage } from "@/api/sanityApi";
 import { mapComponent } from "./componentMap";
+import Form from "./components/form";
 
 const Home: React.FC = async () => {
-  const data = await fetchPage("home"); 
+  const data = await fetchPage("home");
 
   return (
     <main>
@@ -22,6 +22,7 @@ const Home: React.FC = async () => {
             return;
           }
         })}
+      
     </main>
   );
 };

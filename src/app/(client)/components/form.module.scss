@@ -1,0 +1,44 @@
+.form {
+    padding: 48px 40px 48px 40px;
+  background-color: #eff1d9;
+  width: fit-content;
+  border-radius: var(--corner-radius);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-end;
+}
+.heading {
+  margin-bottom: 16px;
+  width:100%;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-size: 32px;
+    margin-right: auto;
+  }
+}
+.submit {
+  margin-top: 8px;
+  font-size: 16px;
+}
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 400px;
+}
+.label {
+  color: #6d6d6d;
+}
+.input,
+.select {
+  padding: 16px;
+  border: 0px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}

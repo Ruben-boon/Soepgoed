@@ -7,6 +7,7 @@ export interface BlockProps {
   buttonGroupTwo?: Button;
   image?: boolean;
   textPosition?: "textLeft" | "textRight" | "textCenter";
+  layout?: string;
 }
 
 export interface Button {

@@ -54,6 +54,12 @@ export const pageType = defineType({
           type: "carousel",
           title: "Carousel",
         }),
+        defineField({
+          name: "textAndForm",
+          type: "textAndForm",
+          title: "Text and Form",
+        }),
+        
       ],
     }),
   ],

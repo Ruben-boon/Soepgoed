@@ -1,5 +1,7 @@
 .header {
   width: 100%;
+  position: relative;
+  min-height: 320px;
 }
 .heading {
   font-size: 48px;
@@ -11,17 +13,18 @@
   border-radius: 0 200px 0 200px;
   flex: 1;
   position: relative;
-}
-.textGroup:before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  bottom: 20px;
-  left: -16px;
-  right: 16px;
-  border: 2px solid #00473b;
-  border-radius: 0 200px 0 200px;
-  z-index: 1; /* Ensure the new element appears on top of .textGroup */
+  z-index: 1;
+  &.imageFullNoText,
+  &.imageFullTextLeft,
+  &.imageFullTextRight {
+    z-index: 3;
+    border-radius: var(--corner-radius);
+    background-color: var(--background-ten);
+    color: var(--text-light);
+    padding:64px;
+    margin-top: 92px;
+    margin-bottom: 92px;
+  }
 }
 
 .paragraph {
@@ -36,6 +39,12 @@
   margin-left: -140px;
   flex: 1;
   z-index: 2;
+  &.imageFullNoText,
+  &.imageFullTextLeft,
+  &.imageFullTextRight {
+    position: static;
+    height: auto;
+  }
 }
 //tablet
 @media only screen and (max-width: 917px) {
