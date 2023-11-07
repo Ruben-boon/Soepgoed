@@ -1,0 +1,11 @@
+.textAndForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 128px;
+    padding-bottom: 32px;
+    gap: 64px;
+}
+.textGroup {
+    max-width: 540px;
+}

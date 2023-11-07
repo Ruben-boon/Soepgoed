@@ -30,7 +30,9 @@ export async function fetchPage(pageUrl: string) {
           'buttonVariant': buttonGroup.buttonVariant,
           'buttonLink': buttonGroup.buttonLink->urlSlug.current
         },
+        formFields,
         textPosition,
+        content,
         layout
       }`
     );

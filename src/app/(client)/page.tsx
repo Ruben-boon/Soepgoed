@@ -1,5 +1,5 @@
 import { fetchPage } from "@/api/sanityApi";
-import { mapComponent } from "./componentMap";
+import { mapComponent } from "./utils/componentMap";
 import Form from "./components/form";
 
 const Home: React.FC = async () => {
@@ -17,12 +17,11 @@ const Home: React.FC = async () => {
             console.log(
               "_type: " +
                 dataItem._type +
-                " doenst have a component mapped to it, check componentMapping in index.tsx, nothing is rendered however so you can also just ignore this message if everything functions well"
+                " Doesn't have a component mapped to it, check componentMapping in index.tsx, nothing is rendered however so you can also just ignore this message if everything functions well"
             );
             return;
           }
         })}
-      
     </main>
   );
 };

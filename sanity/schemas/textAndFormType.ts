@@ -4,7 +4,7 @@ import { EditIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 import { buttonType } from "./buttonType";
 
-export const textAndForm = defineType({
+export const textAndFormType = defineType({
   name: "textAndForm",
   type: "object",
   title: "Text and form",
@@ -26,13 +26,14 @@ export const textAndForm = defineType({
         },
       ],
       options: {
-        list: ["name", "email", "phone", "amount", "date", "message"],
+        list: ["name", "email", "phone", "people", "date", "message"],
       },
     }),
     defineField({
-      name: "textPosition",
-      title: "Text position",
+      name: "layout",
+      title: "Layout",
       type: "string",
+      description: "Text position",
       options: {
         list: [
           { title: "Left", value: "textLeft" },

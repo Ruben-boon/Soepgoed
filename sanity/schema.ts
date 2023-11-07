@@ -14,10 +14,11 @@ import navSubType from './schemas/navSubType'
 import contactSubType from './schemas/contactSubType'
 import metaDataSubType from './schemas/metaDataSubType'
 import settingsSubType from './schemas/settingsSubType'
-import { textAndForm } from './schemas/textAndForm'
+import { textAndFormType } from './schemas/textAndFormType'
+
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [postType, contactSubType, textAndForm, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
+  types: [postType, contactSubType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
 }

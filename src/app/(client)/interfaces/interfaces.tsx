@@ -8,6 +8,8 @@ export interface BlockProps {
   image?: boolean;
   textPosition?: "textLeft" | "textRight" | "textCenter";
   layout?: string;
+  formFields?: [];
+  content?: [];
 }
 
 export interface Button {

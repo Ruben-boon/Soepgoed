@@ -35,10 +35,13 @@
   color: #6d6d6d;
 }
 .input,
-.select {
+.select,
+.textArea {
   padding: 16px;
   border: 0px;
   border-radius: 8px;
   cursor: pointer;
-
+}
+.textArea {
+    min-height: 160px;
 }
