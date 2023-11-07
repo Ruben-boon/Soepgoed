@@ -64,11 +64,30 @@ export async function fetchPosts(amount: number) {
           markDefs,
           style
         }
-      }`
+      }[0...${amount}]`
     );
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
+    return null;
+  }
+}
+
+export async function fetchPostSingle(postSlug: string) {
+  try {
+    const posts = await client.fetch(
+      groq`*[_type == 'post'  && slug.current == '${postSlug}'][0]  {
+        '_key': _rev,
+        heading,
+        'imageSrc': image.asset->url,
+        'imageAlt': alt,
+        _createdAt,
+        content
+      }`
+    );
+    return posts;
+  } catch (error) {
+    console.error("Error fetching project data:", error);
     return null;
   }
 }

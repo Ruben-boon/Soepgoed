@@ -42,7 +42,7 @@ export const pageType = defineType({
         defineField({
           name: "textAndImage",
           type: "textAndImage",
-          title: "Text with image",
+          title: "Text and image",
         }),
         defineField({
           name: "feature",
@@ -52,14 +52,18 @@ export const pageType = defineType({
         defineField({
           name: "carousel",
           type: "carousel",
-          title: "Carousel",
+          title: "Carousel ofpPosts",
         }),
         defineField({
           name: "textAndForm",
           type: "textAndForm",
-          title: "Text and Form",
+          title: "Text and form",
         }),
-        
+        defineField({
+          name: "postsList",
+          type: "postsList",
+          title: "List of all posts",
+        }),
       ],
     }),
   ],

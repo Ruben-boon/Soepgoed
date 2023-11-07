@@ -20,10 +20,12 @@ export interface Button {
 }
 
 export interface PostProps {
-  _key?: string;
+  _key: string;
+  slug: { current: string; _type: string };
   heading?: string;
   imageSrc?: string;
   imageAlt?: string;
   content?: [];
   _createdAt?: string;
+  excerpt?: string;
 }

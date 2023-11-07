@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./card.module.scss";
 import Image from "next/image";
 import { PostProps } from "../interfaces/interfaces";
+import Link from "next/link";
+
 
 interface CardProps {
   content: PostProps;
@@ -9,6 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ content }) => {
   return (
+    <Link href={`/nieuws/${content.slug.current}`}>
     <div className={styles.card}>
       <div className={` ${"textGroup"} ${styles.textGroup}`}>
         {content._createdAt && (
@@ -25,8 +28,7 @@ const Card: React.FC<CardProps> = ({ content }) => {
         )}
         {/* placholder */}
         <p className={styles.paragraph}>
-          Een stukje dummie tekst omdat ik nog niet goed weet hoe de content
-          gefetched word.
+          {content.excerpt}
         </p>
       </div>
       {content.imageSrc && content.imageAlt && (
@@ -41,6 +43,7 @@ const Card: React.FC<CardProps> = ({ content }) => {
         </div>
       )}
     </div>
+    </Link> 
   );
 };
 

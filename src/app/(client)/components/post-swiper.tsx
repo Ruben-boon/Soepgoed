@@ -28,6 +28,7 @@ const PostSwiper: React.FC<PostSwiperProps> = ({ posts }) => {
           >
             {/* @ts-ignore */}
             {posts.map((post) => (
+              post.slug &&
               <SwiperSlide key={post._key} className={styles.swiperSlide}>
                 <Card content={post}></Card>
               </SwiperSlide>

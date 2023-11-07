@@ -1,0 +1,32 @@
+.postsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap:80px;
+  padding-top: 40px;
+  h2 {
+    font-size: 48px;
+    font-weight: 500;
+  }
+}
+.postsListGroup {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+}
+.cardGroup {
+  width: calc(33% - 32px);
+}
+
+@media screen and (max-width: 768px) {
+  .cardGroup {
+    width: 100%;
+  }
+  .postsListGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    margin: 0;
+  }
+}
