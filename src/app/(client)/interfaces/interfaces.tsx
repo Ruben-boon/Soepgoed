@@ -10,6 +10,7 @@ export interface BlockProps {
   layout?: string;
   formFields?: [];
   content?: [];
+  excludePost?: string;
 }
 
 export interface Button {
@@ -21,7 +22,7 @@ export interface Button {
 
 export interface PostProps {
   _key: string;
-  slug: { current: string; _type: string };
+  slug: string;
   heading?: string;
   imageSrc?: string;
   imageAlt?: string;

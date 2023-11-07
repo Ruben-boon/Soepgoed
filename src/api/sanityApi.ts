@@ -43,29 +43,32 @@ export async function fetchPage(pageUrl: string) {
   }
 }
 
-export async function fetchPosts(amount: number) {
+export async function fetchPosts(amount: number, excludePost: string | null) {
   try {
-    const posts = await client.fetch(
-      groq`*[_type == 'post'] | order(_createdAt desc) {
-        '_key': _rev,
-        heading,
-        'imageSrc': image.asset->url,
-        'imageAlt': alt,
-        _createdAt,
-        content[] {
+    const query = groq`*[_type == 'post'${
+      excludePost ? ` && slug.current != "${excludePost}"` : ""
+    }] | order(_createdAt desc) {
+      '_key': _rev,
+      heading,
+      'slug': slug.current,
+      'imageSrc': image.asset->url,
+      'imageAlt': alt,
+      _createdAt,
+      content[] {
+        _key,
+        _type,
+        children[] {
           _key,
           _type,
-          children[] {
-            _key,
-            _type,
-            marks,
-            text
-          },
-          markDefs,
-          style
-        }
-      }[0...${amount}]`
-    );
+          marks,
+          text
+        },
+        markDefs,
+        style
+      }
+    }[0...${amount}]`;
+
+    const posts = await client.fetch(query);
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
@@ -73,12 +76,14 @@ export async function fetchPosts(amount: number) {
   }
 }
 
+
 export async function fetchPostSingle(postSlug: string) {
   try {
     const posts = await client.fetch(
       groq`*[_type == 'post'  && slug.current == '${postSlug}'][0]  {
         '_key': _rev,
         heading,
+        'slug': slug.current,
         'imageSrc': image.asset->url,
         'imageAlt': alt,
         _createdAt,

@@ -5,11 +5,11 @@ import { fetchPosts } from "@/api/sanityApi";
 import PostSwiper from "./post-swiper";
 
 export interface CarouselProps {
-  content: BlockProps
+  content: BlockProps,
 }
 
 const Carousel: React.FC<CarouselProps> = async ({ content }) => {
-  const posts = await fetchPosts(5);
+  const posts = await fetchPosts(3, content.excludePost || null);
 
   return (
     <div className={styles.carousel}>

@@ -9,7 +9,7 @@ export interface PostsListProps {
 }
 
 const PostsList: React.FC<PostsListProps> = async ({ content }) => {
-  const posts = await fetchPosts(12);
+  const posts = await fetchPosts(12, null);
   console.log(posts);
   return (
     <div className={styles.postsList}>

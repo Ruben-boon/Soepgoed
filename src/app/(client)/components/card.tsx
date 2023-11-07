@@ -11,7 +11,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ content }) => {
   return (
-    <Link href={`/nieuws/${content.slug.current}`}>
+    <Link href={`/nieuws/${content.slug}`}>
     <div className={styles.card}>
       <div className={` ${"textGroup"} ${styles.textGroup}`}>
         {content._createdAt && (

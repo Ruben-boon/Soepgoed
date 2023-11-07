@@ -48,7 +48,7 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                     ? `button ${settings.button}`
                     : "";
                 return (
-                  <Link key={index} href={item.url} className={itemClasses}>
+                  <Link key={index} href={item.url} as={`/${item.url}`} className={itemClasses}>
                     {item.label}
                   </Link>
                 );
