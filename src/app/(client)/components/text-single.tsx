@@ -1,3 +1,4 @@
+import { PortableText } from "@portabletext/react";
 import { BlockProps } from "../interfaces/interfaces";
 import Button from "./button";
 import styles from "./text-single.module.scss";
@@ -7,16 +8,12 @@ interface TextProps {
 }
 
 const TextSingle: React.FC<TextProps> = ({ content }) => {
+  console.log(content);
   return (
     <div className={styles.text}>
       <div className={` ${styles.textContainer} ${"container"}`}>
         <div className={`${styles.textGroup} ${"textGroup"}`}>
-          {content.heading && (
-            <h2 className={styles.heading}>{content.heading}</h2>
-          )}
-          {content.paragraph && (
-            <p className={styles.paragraph}>{content.paragraph}</p>
-          )}
+          {content.column1Content && <PortableText value={content.column1Content} />}
           {content.buttonGroup && <Button content={content.buttonGroup} />}
         </div>
       </div>

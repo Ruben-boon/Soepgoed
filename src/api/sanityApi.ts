@@ -33,7 +33,11 @@ export async function fetchPage(pageUrl: string) {
         formFields,
         textPosition,
         content,
-        layout
+        layout,
+        columns,
+        column1Content,
+        column2Content,
+        column3Content,
       }`
     );
     return pageData;
@@ -56,7 +60,7 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
       _createdAt,
       content[] {
         _key,
-        _type,
+      _type,
         children[] {
           _key,
           _type,

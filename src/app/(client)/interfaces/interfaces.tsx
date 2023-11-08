@@ -11,6 +11,12 @@ export interface BlockProps {
   formFields?: [];
   content?: [];
   excludePost?: string;
+  height?: string;
+  container?: boolean;
+  columns?: number;
+  column1Content?: [];
+  column2Content?: [];
+  column3Content?: [];
 }
 
 export interface Button {

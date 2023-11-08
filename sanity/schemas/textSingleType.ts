@@ -10,15 +10,38 @@ export const textSingleType = defineType({
   type: "object",
   title: "Text single",
   fields: [
-    defineField({
-      name: "heading",
+    {
+      name: "columns",
+      title: "Columns",
       type: "string",
-    }),
-    defineField({
-      name: "paragraph",
-      type: "string",
-    }),
-    buttonType,
+      options: {
+        list: [
+          { title: "1 Column", value: "1" },
+          { title: "2 Columns", value: "2" },
+          { title: "3 Columns", value: "3" },
+        ],
+      },
+    },
+    {
+      name: "column1Content",
+      title: "Column 1 Content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "column2Content",
+      title: "Column 2 Content",
+      type: "array",
+      of: [{ type: "block" }],
+      hidden: ({ parent }) => parent?.columns !== "2" && parent?.columns !== "3",
+    },
+    {
+      name: "column3Content",
+      title: "Column 3 Content",
+      type: "array",
+      of: [{ type: "block" }],
+      hidden: ({ parent }) => parent?.columns !== "3",
+    },
   ],
   icon: TextIcon,
   preview: {
