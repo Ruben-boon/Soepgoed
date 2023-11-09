@@ -24,9 +24,6 @@ export const pageType = defineType({
         slugify: (input) =>
           input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
-      validation: (Rule) => Rule.required(),
-      // @ts-ignore
-      // hidden: ({ document }) => document.title === "Home",
     }),
     defineField({
       name: "pageBuilder",
@@ -73,6 +70,11 @@ export const pageType = defineType({
           name: "imageFull",
           type: "imageFull",
           title: "Image full width",
+        }),
+        defineField({
+          name: "twoColumns",
+          type: "twoColumns",
+          title: "Two columns",
         }),
       ],
       icon: ImageIcon,

@@ -9,38 +9,43 @@ export const textSingleType = defineType({
   name: "textSingle",
   type: "object",
   title: "Text single",
-  fields: [
+  options: { columns: 3 },
+  groups: [
     {
-      name: "columns",
-      title: "Columns",
-      type: "string",
-      options: {
-        list: [
-          { title: "1 Column", value: "1" },
-          { title: "2 Columns", value: "2" },
-          { title: "3 Columns", value: "3" },
-        ],
-      },
+      name: 'oneColumn',
+      title: '1 Column',
+      default: true,
     },
+    {
+      name: 'twoColumns',
+      title: '2 Columns',
+    },
+    {
+      name: 'threeColumns',
+      title: '3 Columns',
+    },
+  ],
+  fields: [
     {
       name: "column1Content",
       title: "Column 1 Content",
       type: "array",
       of: [{ type: "block" }],
+      group:  ['oneColumn', 'twoColumns', 'threeColumns'],
     },
     {
       name: "column2Content",
       title: "Column 2 Content",
       type: "array",
       of: [{ type: "block" }],
-      hidden: ({ parent }) => parent?.columns !== "2" && parent?.columns !== "3",
+      group:  ['twoColumns', 'threeColumns'],
     },
     {
       name: "column3Content",
       title: "Column 3 Content",
       type: "array",
       of: [{ type: "block" }],
-      hidden: ({ parent }) => parent?.columns !== "3",
+      group: 'threeColumns',
     },
   ],
   icon: TextIcon,
