@@ -7,6 +7,9 @@ import Carousel from "../components/carousel";
 import TextAndForm from "../components/text-and-form";
 import PostsList from "../components/posts-list";
 import ImageFull from "../components/image-full";
+import TwoColumns from "../components/two-columns";
+import ThreeColumns from "../components/three-columns";
+import ContactInfo from "../components/contact-info";
 
 
 const componentMapping = {
@@ -18,6 +21,10 @@ const componentMapping = {
     textAndForm: TextAndForm,
     postsList: PostsList,
     imageFull: ImageFull,
+    twoColumns: TwoColumns,
+    threeColumns: ThreeColumns,
+    contactInfo: ContactInfo,
+
   };
   // @ts-ignore
  export const mapComponent = (type) => componentMapping[type];

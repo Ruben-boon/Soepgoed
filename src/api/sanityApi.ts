@@ -16,8 +16,20 @@ export async function fetchPage(pageUrl: string) {
         _key,
         heading,
         paragraph,
-        'imageSrc': imageGroup.image.asset->url,
-        'imageAlt': imageGroup.alt,
+        "imageSrc": coalesce(
+          imageGroup.image.asset->url ,
+          image.asset->url,
+        ),
+        "imageAlt": coalesce(
+          imageGroup.alt,
+          alt
+        ),
+        "imageSrc1": column1Content.image1.asset->url,
+        "imageAlt1": column1Content.alt1,
+        "imageSrc2": column2Content.image2.asset->url,
+        "imageAlt2": column2Content.alt2,
+        "imageSrc3": column3Content.image3.asset->url,
+        "imageAlt3": column3Content.alt3,
         'buttonGroup': {
           'buttonText': buttonGroup.buttonText,
           'buttonToggle': buttonGroup.buttonToggle,
@@ -38,6 +50,7 @@ export async function fetchPage(pageUrl: string) {
         column1Content,
         column2Content,
         column3Content,
+        height,
       }`
     );
     return pageData;
@@ -79,7 +92,6 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
     return null;
   }
 }
-
 
 export async function fetchPostSingle(postSlug: string) {
   try {
@@ -158,14 +170,39 @@ export async function fetchSettings() {
     return null;
   }
 }
+export async function fetchContactInfo() {
+  try {
+    const posts = await client.fetch(
+      groq`
+        *[_type == "contactSubType"] | order(_createdAt asc) [0] {
+          "contactInfo": {
+            "companyName": companyName,
+            "companyStreet": companyStreet,
+            "companyPostal": companyPostal,
+            "companyPhone": companyPhone,
+            "companyEmail": companyEmail,
+            "companyInstagram": companyInstagram,
+            "companyFacebook": companyFacebook,
+            "companyLinkedIn": companyLinkedIn,
+            "copyright": copyright
+          }
+        }
+      `
+    );
+    return posts;
+  } catch (error) {
+    console.error("Error fetching projects data:", error);
+    return null;
+  }
+}
+
 
 export function formatSettingsData(dataArray: any[]) {
   const extractedData = {
     metadata: {},
     contactInfo: {},
     footerSettings: {},
-    navSettings: {
-    },
+    navSettings: {},
     menu: [],
   };
 

@@ -17,6 +17,12 @@ export interface BlockProps {
   column1Content?: [];
   column2Content?: [];
   column3Content?: [];
+  imageSrc1?: string;
+  imageSrc2?: string;
+  imageSrc3?: string;
+  imageAlt1?: string;
+  imageAlt2?: string;
+  imageAlt3?: string;
 }
 
 export interface Button {

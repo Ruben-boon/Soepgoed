@@ -1,23 +1,19 @@
-
 import { EditIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { buttonType } from "./buttonType";
+import { imageType } from "./imageType";
 
-export const textAndFormType = defineType({
-  name: "textAndForm",
+export const contactInfoType = defineType({
+  name: "contactInfo",
   type: "object",
-  title: "Text and form",
+  title: "Contact Info",
   fields: [
-    {
-      title: "Content",
-      name: "content",
-      type: "array",
-      of: [{ type: "block" }],
-    },
-    buttonType,
     defineField({
-      name: "formFields",
-      title: "Form fields",
+      name: "heading",
+      type: "string",
+    }),
+    defineField({
+      name: "contactFields",
+      title: "Contact fields",
       type: "array",
       of: [
         {
@@ -25,9 +21,10 @@ export const textAndFormType = defineType({
         },
       ],
       options: {
-        list: ["name", "email", "phone", "people", "date", "message"],
+        list: ["name", "street", "postal", "phone", "email", "socials"],
       },
     }),
+    imageType,
     defineField({
       name: "layout",
       title: "Layout",

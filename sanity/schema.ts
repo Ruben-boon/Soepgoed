@@ -18,10 +18,12 @@ import { textAndFormType } from './schemas/textAndFormType'
 import { postsListType } from './schemas/postsListType'
 import { imageFullType } from './schemas/imageFullType'
 import { twoColumnsType } from './schemas/twoColumnsType'
+import { threeColumnsType } from './schemas/threeColumnsType'
+import { contactInfoType } from './schemas/contactType'
 
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [postType, contactSubType, twoColumnsType, imageFullType, postsListType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
+  types: [postType, contactSubType, contactInfoType, threeColumnsType, twoColumnsType, imageFullType, postsListType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
 }

@@ -11,8 +11,6 @@ const ImageFull: React.FC<ImageFullProps> = ({ content }) => {
   return (
     <div className={styles.imageFull}>
       <div className={` ${ content.container ? "container" : ""}`}>
-      <p>hi my name is</p>
-
         {content.imageSrc && content.imageAlt && (
           <div className={`${styles.image} ${"image"} ${content.height ? styles[content.height] : ""}`}>
             <Image
@@ -21,9 +19,7 @@ const ImageFull: React.FC<ImageFullProps> = ({ content }) => {
               fill={true}
               style={{ objectFit: "cover" }}
             />
-            <p>slim shady</p>
           </div>
-          
         )}
       </div>
     </div>

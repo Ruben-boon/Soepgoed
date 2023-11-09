@@ -76,6 +76,16 @@ export const pageType = defineType({
           type: "twoColumns",
           title: "Two columns",
         }),
+        defineField({
+          name: "threeColumns",
+          type: "threeColumns",
+          title: "Three columns",
+        }),
+        defineField({
+          name: "contactInfo",
+          type: "contactInfo",
+          title: "Contact info",
+        }),
       ],
       icon: ImageIcon,
     }),

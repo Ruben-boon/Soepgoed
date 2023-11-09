@@ -2,14 +2,11 @@
 
 import { TextIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { buttonType } from "./buttonType";
-
 
 export const twoColumnsType = defineType({
   name: "twoColumns",
   type: "object",
   title: "Two Columns",
-  options: { columns: 2},
   fields: [
     {
       name: "column1Content",
