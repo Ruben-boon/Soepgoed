@@ -20,10 +20,11 @@ import { imageFullType } from './schemas/imageFullType'
 import { twoColumnsType } from './schemas/twoColumnsType'
 import { threeColumnsType } from './schemas/threeColumnsType'
 import { contactInfoType } from './schemas/contactType'
+import { donateType } from './schemas/donateType'
 
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [postType, contactSubType, contactInfoType, threeColumnsType, twoColumnsType, imageFullType, postsListType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
+  types: [postType, contactSubType, donateType, contactInfoType, threeColumnsType, twoColumnsType, imageFullType, postsListType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
 }

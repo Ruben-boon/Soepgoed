@@ -23,8 +23,8 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
             <Image
               src={settings.logoSrc}
               alt={"Logo van soepgoed"}
-              width={80}
-              height={80}
+              width={100}
+              height={100}
               style={{ objectFit: "contain" }}
             />
           </Link>
@@ -45,10 +45,10 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                 const isLastItem = index === menuAr.length - 1;
                 const itemClasses =
                   isLastItem && settings.button
-                    ? `button ${settings.button}`
+                    ? `button ${settings.button} ${styles.button}`
                     : "";
                 return (
-                  <Link key={index} href={item.url} as={`/${item.url}`} className={itemClasses}>
+                  <Link key={index} href={item.url} onClick={() => setMenuOpen(false)} as={`/${item.url}`} className={itemClasses}>
                     {item.label}
                   </Link>
                 );

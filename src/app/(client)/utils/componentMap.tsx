@@ -10,6 +10,8 @@ import ImageFull from "../components/image-full";
 import TwoColumns from "../components/two-columns";
 import ThreeColumns from "../components/three-columns";
 import ContactInfo from "../components/contact-info";
+import DonateSingle from "../components/donate";
+import Donate from "../components/donate";
 
 
 const componentMapping = {
@@ -24,7 +26,7 @@ const componentMapping = {
     twoColumns: TwoColumns,
     threeColumns: ThreeColumns,
     contactInfo: ContactInfo,
-
+    donate: Donate,
   };
   // @ts-ignore
  export const mapComponent = (type) => componentMapping[type];

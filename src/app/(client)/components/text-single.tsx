@@ -8,12 +8,11 @@ interface TextProps {
 }
 
 const TextSingle: React.FC<TextProps> = ({ content }) => {
-  console.log(content);
   return (
     <div className={styles.text}>
       <div className={` ${styles.textContainer} ${"container"}`}>
         <div className={`${styles.textGroup} ${"textGroup"}`}>
-          {content.column1Content && <PortableText value={content.column1Content} />}
+          {content.content && <PortableText value={content.content} />}
           {content.buttonGroup && <Button content={content.buttonGroup} />}
         </div>
       </div>

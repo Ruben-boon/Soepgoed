@@ -20,8 +20,8 @@ const PostsList: React.FC<PostsListProps> = async ({ content }) => {
             // @ts-ignore
             posts.map((post) => {
               return (
-                <div className={styles.cardGroup}>
-                  <Card key={post._key} content={post} />
+                <div className={styles.cardGroup} key={post._key}>
+                  <Card content={post} />
                 </div>
               );
             })}

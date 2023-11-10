@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { Button } from "../interfaces/interfaces";
+import spatula from "../../../../public/spatulaIcon.svg"
 
 interface ButtonProps {
   content: Button;
 }
 
 const Button: React.FC<ButtonProps> = ({ content }) => {
+  console.log(content, "content from button.tsx");
   return (
     <>
       {content.buttonLink && content.buttonText && (

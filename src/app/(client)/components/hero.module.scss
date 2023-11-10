@@ -4,29 +4,9 @@
   min-height: 320px;
 }
 .heading {
-  font-size: 48px;
-  line-height: 48px;
+  font-size: 64px;
+  line-height: 64px;
 }
-.textGroup {
-  padding: 96px;
-  background-color: #dfebd4;
-  border-radius: 0 200px 0 200px;
-  flex: 1;
-  position: relative;
-  z-index: 1;
-  &.imageFullNoText,
-  &.imageFullTextLeft,
-  &.imageFullTextRight {
-    z-index: 3;
-    border-radius: var(--corner-radius);
-    background-color: var(--background-ten);
-    color: var(--text-light);
-    padding:64px;
-    margin-top: 92px;
-    margin-bottom: 92px;
-  }
-}
-
 .paragraph {
   font-size: 18px;
   line-height: 27px;
@@ -46,6 +26,42 @@
     height: auto;
   }
 }
+//desktop 
+@media only screen and (min-width: 768px) {
+  .textGroup {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-left: 104px;
+    padding-right: 104px;
+    height:100%;
+    position: relative;
+    z-index: 1;
+    &.imageFullNoText,
+    &.imageFullTextLeft,
+    &.imageFullTextRight {
+      z-index: 3;
+      border-radius: var(--corner-radius);
+      background-color: var(--background-ten);
+      color: var(--text-light);
+      padding:64px;
+      margin-top: 92px;
+      margin-bottom: 92px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      left: -32px;
+      width: 130%; 
+      height: 120%;
+      background-image: url('../../../../public/blob.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1; 
+    }
+  }
+}
 //tablet
 @media only screen and (max-width: 917px) {
   .image {
@@ -59,14 +75,13 @@
 //mobile
 @media only screen and (max-width: 768px) {
   .header {
-    padding: 32px 0 64px 0;
+    padding: 80px 0 64px 0;
   }
   .heading {
-    font-size: 44px;
-    margin-bottom: 0;
+    font-size: 68px;
   }
   .paragraph {
-    font-size: 16px;
+    font-size: 18px;
   }
   .textGroup {
     padding: 0px;
@@ -76,5 +91,12 @@
     width: 100%;
     margin-left: 0;
     height: 400px;
+  }
+  .buttonContainer {
+    flex-direction: column;
+    gap: 16px;
+    .button {
+      width: 100%;
+    }
   }
 }

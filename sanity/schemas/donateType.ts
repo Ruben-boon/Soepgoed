@@ -1,30 +1,24 @@
 import { EditIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { imageType } from "./imageType";
 
 export const donateType = defineType({
-  name: "contactInfo",
+  name: "donate",
   type: "object",
-  title: "Contact Info",
+  title: "Donate",
   fields: [
     defineField({
-      name: "heading",
-      type: "string",
+        name: "column1Content",
+        title: "Column 1 Content",
+        type: "array",
+        of: [{ type: "block" }],
     }),
     defineField({
-      name: "contactFields",
-      title: "Contact fields",
-      type: "array",
-      of: [
-        {
-          type: "string",
-        },
-      ],
-      options: {
-        list: ["name", "street", "postal", "phone", "email", "socials"],
-      },
+        name: "column2Content",
+        title: "Column 2 Content",
+        type: "array",
+        of: [{ type: "block" }],
     }),
-    imageType,
+
     defineField({
       name: "layout",
       title: "Layout",

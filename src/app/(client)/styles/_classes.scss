@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: var(--max-width);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,6 +42,7 @@
   display: flex;
   align-items: center;
   max-width: fit-content;
+  justify-content: center;
   gap: 8px;
   margin-bottom: 0;
   padding: calc(0.7rem - 1px) calc(1.7rem - 1px);
@@ -57,43 +58,42 @@
 }
 
 .primary {
-  background-color: var(--button-primary);
-  color: var(--button-primary-text);
+  background-color: var(--color-green);
+  color: var(--text-dark);
   color: white;
-  // border: 1px solid #568C57;
-  box-shadow: rgba(255, 255, 255, 0.375) 0px 1px 1px 0px inset, rgba(93, 84, 50, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.451) 0px 30px 60px -30px;
   &:hover,
   &:focus {
-    background-color: var(--button-primary-hover);
+    background-color: var(--color-green-hover);
+    box-shadow: var(--box-shadow-small);
   }
 }
 .secondary {
-  background-color: var(--button-secondary);
-  color: var(--button-secondary-text);
-  box-shadow: rgba(255, 255, 255, 0.375) 0px 1px 1px 0px inset, rgba(93, 84, 50, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.451) 0px 30px 60px -30px;
-
+  background-color: var(--color-red);
+  color: white;
+  position: relative;
   &:hover,
   &:focus {
-    background-color: var(--button-secondary-hover);
+    background-color: var(--color-red-hover);
+    box-shadow: var(--box-shadow-small);
   }
 }
-
 .outline {
   background-color: white;
-  // border: 1px solid var(--button-outline);
-  // box-shadow: var(--button-outline-shadow);
-  color: var(--button-outline-text);
-  box-shadow: rgba(255, 255, 255, 0.375) 0px 1px 1px 0px inset, rgba(93, 84, 50, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.451) 0px 30px 60px -30px;
-
+  color: var(--color-green-dark);
   &:hover,
   &:focus {
-    background-color: var(--button-outline-hover);
-    border: 1px solid var(--button-outline-hover);
-    color: var(--button-outline-hover-text);
+    border: 1px solid var(--color-green-dark);
+    box-shadow: var(--box-shadow-small);
   }
 }
+
 @media screen and (max-width: 768px) {
   .outline {
     pointer-events: none;
   }
+  .button{
+    width: 100%;
+    max-width: 100%;
+  }
+
 }

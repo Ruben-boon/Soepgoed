@@ -86,6 +86,11 @@ export const pageType = defineType({
           type: "contactInfo",
           title: "Contact info",
         }),
+        defineField({
+          name: "donate",
+          type: "donate",
+          title: "Donate",
+        }),
       ],
       icon: ImageIcon,
     }),

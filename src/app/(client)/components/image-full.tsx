@@ -7,7 +7,6 @@ interface ImageFullProps {
 }
 
 const ImageFull: React.FC<ImageFullProps> = ({ content }) => {
-    console.log(content);
   return (
     <div className={styles.imageFull}>
       <div className={` ${ content.container ? "container" : ""}`}>
