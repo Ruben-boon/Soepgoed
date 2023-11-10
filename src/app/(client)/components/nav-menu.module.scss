@@ -47,7 +47,7 @@
 
 @media only screen and (max-width: 767px) {
   .navContainer {
-    flex-direction: row;
+    flex-direction: row!important;
     position: static;
   }
   .crossGroup {
