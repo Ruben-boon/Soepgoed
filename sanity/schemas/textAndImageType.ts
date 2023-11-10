@@ -5,20 +5,17 @@ import { defineField, defineType } from "sanity";
 import { buttonType } from "./buttonType";
 import { imageType } from "./imageType";
 
-
 export const textAndImageType = defineType({
   name: "textAndImage",
   type: "object",
   title: "Text and image",
   fields: [
-    defineField({
-      name: "heading",
-      type: "string",
-    }),
-    defineField({
-      name: "paragraph",
-      type: "string",
-    }),
+    {
+      name: "content",
+      title: "Content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
     buttonType,
     imageType,
     defineField({
@@ -36,14 +33,24 @@ export const textAndImageType = defineType({
   icon: ImageIcon,
   preview: {
     select: {
-      title: "heading",
-      image: "image",
+      content: "content",
     },
-    prepare({ title, image }) {
+    prepare(value) {
+        // @ts-ignore
+      const block = (value.content || []).find(
+        //@ts-ignore
+        (block) => block._type === "block"
+      );
       return {
-        title: title || "Untitled",
-        subtitle: "Text and Image",
-        media: image || ImageIcon,
+        title: block
+          ? block.children
+              //@ts-ignore
+              .filter((child) => child._type === "span")
+              //@ts-ignore
+              .map((span) => span.text)
+              .join("")
+          : "No title",
+          subtitle: "Text with image",
       };
     },
   },

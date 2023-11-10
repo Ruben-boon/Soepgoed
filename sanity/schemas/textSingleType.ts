@@ -8,7 +8,7 @@ import { buttonType } from "./buttonType";
 export const textSingleType = defineType({
   name: "textSingle",
   type: "object",
-  title: "Text single",
+  title: "Text",
   fields: [
     {
       name: "content",
@@ -20,13 +20,24 @@ export const textSingleType = defineType({
   icon: TextIcon,
   preview: {
     select: {
-      title: "heading",
+      content: "content",
     },
-    prepare({ title }) {
+    prepare(value) {
+        // @ts-ignore
+      const block = (value.content || []).find(
+        //@ts-ignore
+        (block) => block._type === "block"
+      );
       return {
-        title: title || "Single Text",
-        subtitle: "Single text",
-        media: TextIcon,
+        title: block
+          ? block.children
+              //@ts-ignore
+              .filter((child) => child._type === "span")
+              //@ts-ignore
+              .map((span) => span.text)
+              .join("")
+          : "No title",
+          subtitle: "Text",
       };
     },
   },

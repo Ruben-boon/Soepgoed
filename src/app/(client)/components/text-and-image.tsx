@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./text-and-image.module.scss";
 import { BlockProps } from "../interfaces/interfaces";
 import Button from "./button";
+import { PortableText } from "@portabletext/react";
 
 export interface TextAndImageProps {
   content: BlockProps;
@@ -16,12 +17,7 @@ const TextAndImage: React.FC<TextAndImageProps> = ({ content }) => {
         }`}
       >
         <div className={` ${styles.textGroup} ${"textGroup"}`}>
-          {content.heading && (
-            <h2 className={styles.heading}>{content.heading}</h2>
-          )}
-          {content.paragraph && (
-            <p className={styles.paragraph}>{content.paragraph}</p>
-          )}
+          {content.content && <PortableText value={content.content} />}
           {content.buttonGroup && <Button content={content.buttonGroup} />}
         </div>
         {content.imageSrc && content.imageAlt && (

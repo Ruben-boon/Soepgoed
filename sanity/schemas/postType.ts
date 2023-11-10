@@ -8,16 +8,29 @@ export const postType = defineType({
   fields: [
     defineField({ name: "heading", type: "string", title: "Post title" }),
     defineField({
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      description: "Click generate after settings a title, its used for the url",
-      options: {
-        source: "heading",
-        maxLength: 200, // will be ignored if slugify is set
-        slugify: (input) =>
-          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
-      },
+      name: "meta",
+      type: "object",
+      options: {columns: 2 },
+      fields: [
+        defineField({
+          title: "Slug",
+          name: "slug",
+          type: "slug",
+          description:
+            "Click generate after settings a title, its used for the url",
+          options: {
+            source: "heading",
+            slugify: (input) =>
+              input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+          },
+        }),
+        defineField({
+          name: "publishedAt",
+          type: "datetime",
+          title: "Published at",
+          description: "This can be used to manipulate the post date",
+        }),
+      ],
     }),
     defineField({
       name: "image",
@@ -32,7 +45,12 @@ export const postType = defineType({
       description: "Describe the image for screen readers",
       placeholder: "Please describe the image for screen readers",
     }),
-    defineField({ name: "excerpt", type: "string", title: "Excerpt", description: "Short description of the post this appear in the thumbnail"}),
+    defineField({
+      name: "excerpt",
+      type: "string",
+      title: "Excerpt",
+      description: "Short description of the post this appear in the thumbnail",
+    }),
     defineField({
       title: "Content",
       name: "content",

@@ -4,6 +4,9 @@ export const buttonType = defineField({
   name: "buttonGroup",
   title: "Button",
   type: "object",
+  options: {
+    columns: 2,
+  },
   fields: [
     defineField({
       name: "buttonToggle",
@@ -13,26 +16,26 @@ export const buttonType = defineField({
       description: "Enable / disable button",
     }),
     defineField({
-      name: "buttonText",
-      type: "string",
-      title: "Button text",
-      hidden: ({ parent }) => parent?.buttonToggle === false,
-      // @ts-ignore
-      validation: (Rule) =>
-        Rule.custom((fieldValue, context) => {
-          // @ts-ignore
-          if (context.parent?.buttonToggle && !fieldValue) {
-            return "This field is required when Image Toggle is true.";
-          }
-          return true;
-        }),
-    }),
-    defineField({
       name: "buttonLink",
       type: "reference",
       to: [{ type: "page"}],
       title: "Button link",
       description: "Select a page to link to",
+      hidden: ({ parent }) => parent?.buttonToggle === false,
+      // @ts-ignore
+      validation: (Rule) =>
+      Rule.custom((fieldValue, context) => {
+        // @ts-ignore
+        if (context.parent?.buttonToggle && !fieldValue) {
+          return "This field is required when Image Toggle is true.";
+        }
+        return true;
+      }),
+    }),
+    defineField({
+      name: "buttonText",
+      type: "string",
+      title: "Button text",
       hidden: ({ parent }) => parent?.buttonToggle === false,
       // @ts-ignore
       validation: (Rule) =>

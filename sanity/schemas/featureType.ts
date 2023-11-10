@@ -10,26 +10,35 @@ export const featureType = defineType({
   type: "object",
   title: "Feature",
   fields: [
-    defineField({
-      name: "heading",
-      type: "string",
-    }),
-    defineField({
-      name: "paragraph",
-      type: "string",
-    }),
+    {
+      name: "content",
+      title: "Content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
     buttonType,
   ],
   icon: TextIcon,
   preview: {
     select: {
-      title: "heading",
+      content: "content",
     },
-    prepare({ title }) {
+    prepare(value) {
+        // @ts-ignore
+      const block = (value.content || []).find(
+        //@ts-ignore
+        (block) => block._type === "block"
+      );
       return {
-        title: title || "Untitled",
-        subtitle: "Feature",
-        media: TextIcon,
+        title: block
+          ? block.children
+              //@ts-ignore
+              .filter((child) => child._type === "span")
+              //@ts-ignore
+              .map((span) => span.text)
+              .join("")
+          : "No title",
+          subtitle: "Feature",
       };
     },
   },
