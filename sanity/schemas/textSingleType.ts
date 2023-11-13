@@ -2,7 +2,6 @@
 
 import { TextIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { buttonType } from "./buttonType";
 
 
 export const textSingleType = defineType({

@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ content }) => {
-  console.log(content, "content from button.tsx");
+
   return (
     <>
       {content.buttonLink && content.buttonText && (

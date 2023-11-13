@@ -12,6 +12,7 @@ interface PostSwiperProps {
 }
 
 const PostSwiper: React.FC<PostSwiperProps> = ({ posts }) => {
+
   return (
     <>
       {posts && posts.length > 0 && (

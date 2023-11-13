@@ -1,4 +1,4 @@
-import styles from "./text-and-image.module.scss";
+import styles from "./two-columns.module.scss";
 import { BlockProps } from "../interfaces/interfaces";
 import { PortableText } from "@portabletext/react";
 
@@ -10,12 +10,12 @@ const TwoColumns: React.FC<TwoColumnsProps> = ({ content }) => {
   return (
     <div className={styles.twoColumns}>
       <div
-        className={` ${styles.textAndImageContainer} ${"container"} ${
+        className={` ${styles.container} ${"container"} ${
           content.textPosition
         }`}
       >
-        {content.column1Content && <PortableText value={content.column1Content} />}
-        {content.column2Content && <PortableText value={content.column2Content} /> }
+        {content.column1Content && <div className={styles.textGroup} ><PortableText value={content.column1Content} /> </div>}
+        {content.column2Content && <div className={styles.textGroup} ><PortableText value={content.column2Content} /> </div>}
       </div>
     </div>
   );

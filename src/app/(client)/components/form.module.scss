@@ -2,7 +2,7 @@
     padding: 48px 40px 48px 40px;
   background-color: #eff1d9;
   width: fit-content;
-  border-radius: var(--corner-radius);
+  border-radius: var(--border-radius-medium);
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -11,14 +11,6 @@
 .heading {
   margin-bottom: 16px;
   width:100%;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-size: 32px;
-    margin-right: auto;
-  }
 }
 .submit {
   margin-top: 8px;

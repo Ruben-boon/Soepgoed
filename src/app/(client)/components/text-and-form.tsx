@@ -10,7 +10,7 @@ interface TextAndFormProps {
 const TextAndForm: React.FC<TextAndFormProps> = ({ content }) => {
   return (
     <div className={styles.textAndForm}>
-      <div className={` ${styles.textContainer} ${"container"} ${content.layout}`}>
+      <div className={` ${styles.container} ${"container"} ${content.layout}`}>
         {content.content && (
           <div className={`${styles.textGroup} ${"textGroup"}`}>
             <PortableText value={content.content} />

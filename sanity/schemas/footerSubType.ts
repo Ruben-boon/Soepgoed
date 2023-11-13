@@ -1,5 +1,4 @@
 import { defineField } from "sanity";
-import { buttonType } from "./buttonType";
 
 export default {
   name: "footerSubType",
@@ -14,24 +13,20 @@ export default {
       description: "Enable / disable banner in the footer",
     },
     {
-      name: "heading",
-      type: "string",
-      title: "Heading",
-      // @ts-ignore
+      name: "contentColumnOne",
+      title: "Content column one",
+      type: "array",
+      of: [{ type: "block" }], // @ts-ignore
       hidden: ({ parent }) => parent?.bannerToggle === false,
     },
-    {
-      name: "paragraph",
-      type: "string",
-      title: "Paragraph", // @ts-ignore
-      hidden: ({ parent }) => parent?.bannerToggle === false,
-    },
-    {
+    defineField({
       name: "buttonGroup",
       title: "Button",
-      type: "object", // @ts-ignore
+      type: "object",
       hidden: ({ parent }) => parent?.bannerToggle === false,
-
+      options: {
+        columns: 2,
+      },
       fields: [
         defineField({
           name: "buttonToggle",
@@ -41,9 +36,11 @@ export default {
           description: "Enable / disable button",
         }),
         defineField({
-          name: "buttonText",
-          type: "string",
-          title: "Button text",
+          name: "buttonLink",
+          type: "reference",
+          to: [{ type: "page" }],
+          title: "Button link",
+          description: "Select a page to link to",
           hidden: ({ parent }) => parent?.buttonToggle === false,
           // @ts-ignore
           validation: (Rule) =>
@@ -56,11 +53,9 @@ export default {
             }),
         }),
         defineField({
-          name: "buttonLink",
-          type: "reference",
-          to: [{ type: "page"}],
-          title: "Button link",
-          description: "Select a page to link to",
+          name: "buttonText",
+          type: "string",
+          title: "Button text",
           hidden: ({ parent }) => parent?.buttonToggle === false,
           // @ts-ignore
           validation: (Rule) =>
@@ -88,6 +83,78 @@ export default {
           },
         }),
       ],
+    }),
+    {
+      name: "contentColumnTwo",
+      title: "Content column two",
+      type: "array",
+      of: [{ type: "block" }], // @ts-ignore
+      hidden: ({ parent }) => parent?.bannerToggle === false,
     },
+    defineField({
+      name: "buttonGroupTwo",
+      title: "Button",
+      type: "object",
+      hidden: ({ parent }) => parent?.bannerToggle === false,
+      options: {
+        columns: 2,
+      },
+      fields: [
+        defineField({
+          name: "buttonToggle",
+          initialValue: false,
+          type: "boolean",
+          title: "Button",
+          description: "Enable / disable button",
+        }),
+        defineField({
+          name: "buttonLink",
+          type: "reference",
+          to: [{ type: "page" }],
+          title: "Button link",
+          description: "Select a page to link to",
+          hidden: ({ parent }) => parent?.buttonToggle === false,
+          // @ts-ignore
+          validation: (Rule) =>
+            Rule.custom((fieldValue, context) => {
+              // @ts-ignore
+              if (context.parent?.buttonToggle && !fieldValue) {
+                return "This field is required when Image Toggle is true.";
+              }
+              return true;
+            }),
+        }),
+        defineField({
+          name: "buttonText",
+          type: "string",
+          title: "Button text",
+          hidden: ({ parent }) => parent?.buttonToggle === false,
+          // @ts-ignore
+          validation: (Rule) =>
+            Rule.custom((fieldValue, context) => {
+              // @ts-ignore
+              if (context.parent?.buttonToggle && !fieldValue) {
+                return "This field is required when Image Toggle is true.";
+              }
+              return true;
+            }),
+        }),
+        defineField({
+          name: "buttonVariant",
+          type: "string",
+          title: "Button variant",
+          initialValue: "primary",
+          hidden: ({ parent }) => parent?.buttonToggle === false,
+          options: {
+            list: [
+              { title: "Primary", value: "primary" },
+              { title: "Secondary", value: "secondary" },
+              { title: "Outline", value: "outline" },
+            ],
+            layout: "radio",
+          },
+        }),
+      ],
+    }),
   ],
 };

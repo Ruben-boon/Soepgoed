@@ -5,14 +5,21 @@ import facebook from "../../../../public/facebook.svg";
 import instagram from "../../../../public/instagram.svg";
 import linkedIn from "../../../../public/linkedIn.svg";
 import Button from "./button";
+import { PortableText } from "@portabletext/react";
 
 type FooterProps = {
   menuAr: { url: string; label: string }[];
   settings: {
     banner?: true;
-    heading?: string;
-    paragraph?: string;
+    contentColumnOne?: any;
+    contentColumnTwo?: any;
     buttonGroup?: {
+      buttonText: string;
+      buttonToggle: true;
+      buttonVariant: "primary" | "secondary";
+      buttonLink: string;
+    };
+    buttonGroupTwo?: {
       buttonText: string;
       buttonToggle: true;
       buttonVariant: "primary" | "secondary";
@@ -75,10 +82,17 @@ const Footer = ({ menuAr, settings, contactInfo, logo }: FooterProps) => {
       {settings.banner && (
         <div className={`${styles.bannerContainer} ${"container"}`}>
           <div className={styles.textGroup}>
-            <h2>{settings.heading}</h2>
-            <p>{settings.paragraph}</p>
+            {settings.contentColumnOne && (
+              <PortableText value={settings.contentColumnOne} />
+            )}
+            {settings.buttonGroup && <Button content={settings.buttonGroup} />}
           </div>
-          {settings.buttonGroup && <Button content={settings.buttonGroup} />}
+          <div className={styles.textGroup}>
+            {settings.contentColumnTwo && (
+              <PortableText value={settings.contentColumnTwo} />
+            )}
+            {settings.buttonGroupTwo && <Button content={settings.buttonGroupTwo} />}
+          </div>
         </div>
       )}
       <div className={`${styles.crsContainer} ${"container"}`}>

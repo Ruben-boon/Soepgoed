@@ -67,21 +67,23 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
     }] | order(_createdAt desc) {
       '_key': _rev,
       heading,
-      'slug': slug.current,
+      'slug': meta.slug.current,
       'imageSrc': image.asset->url,
       'imageAlt': alt,
       _createdAt,
+      excerpt,
+      "publishedAt": meta.publishedAt,
       content[] {
         _key,
       _type,
-        children[] {
-          _key,
-          _type,
-          marks,
-          text
-        },
-        markDefs,
-        style
+      children[] {
+        _key,
+        _type,
+        marks,
+        text
+      },
+      markDefs,
+      style
       }
     }[0...${amount}]`;
 
@@ -95,18 +97,20 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
 
 export async function fetchPostSingle(postSlug: string) {
   try {
-    const posts = await client.fetch(
-      groq`*[_type == 'post'  && slug.current == '${postSlug}'][0]  {
+    const post = await client.fetch(
+      groq`*[_type == 'post' && slug.current == '${postSlug}'][0]  {
         '_key': _rev,
         heading,
-        'slug': slug.current,
+        'slug': meta.slug.current,
+        "publishedAt": meta.publishedAt,
         'imageSrc': image.asset->url,
         'imageAlt': alt,
         _createdAt,
         content
       }`
     );
-    return posts;
+    console.log(post);
+    return post;
   } catch (error) {
     console.error("Error fetching project data:", error);
     return null;
@@ -139,14 +143,20 @@ export async function fetchSettings() {
         *[_type == "footerSubType"] | order(_createdAt asc) [0] {
           "footerSettings": {
             "banner": bannerToggle,
-            "heading": heading,
-            "paragraph": paragraph,
+            contentColumnOne,
+            contentColumnTwo,
             "buttonGroup": {
               "buttonText": buttonGroup.buttonText,
               "buttonToggle": buttonGroup.buttonToggle,
               "buttonVariant": buttonGroup.buttonVariant,
               "buttonLink": buttonGroup.buttonLink->urlSlug.current
-            }
+            },
+            "buttonGroupTwo": {
+              "buttonText": buttonGroupTwo.buttonText,
+              "buttonToggle": buttonGroupTwo.buttonToggle,
+              "buttonVariant": buttonGroupTwo.buttonVariant,
+              "buttonLink": buttonGroupTwo.buttonLink->urlSlug.current
+            },
           }
         },
         *[_type == "navSubType"] {
@@ -195,7 +205,6 @@ export async function fetchContactInfo() {
     return null;
   }
 }
-
 
 export function formatSettingsData(dataArray: any[]) {
   const extractedData = {

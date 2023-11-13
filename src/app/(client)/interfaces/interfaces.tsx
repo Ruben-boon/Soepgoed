@@ -41,4 +41,5 @@ export interface PostProps {
   content?: [];
   _createdAt?: string;
   excerpt?: string;
+  publishedAt?: string;
 }

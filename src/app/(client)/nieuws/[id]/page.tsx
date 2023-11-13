@@ -16,17 +16,19 @@ const Page = async ({ params }: { params: { id: string } }) => {
     <main>
       <div className={`container ${styles.nieuwsContainer}`}>
         <div className={styles.postGroup}>
-          <div className={`${styles.image} image`}>
-            <Image
-              src={data.imageSrc}
-              alt={data.imageAlt}
-              priority={false}
-              fill={true}
-              style={{ objectFit: "cover" }}
-            />
-          </div>
+          {data && data.imageSrc && data.imageAlt && (
+            <div className={`${styles.image} image`}>
+              <Image
+                src={data.imageSrc}
+                alt={data.imageAlt}
+                priority={false}
+                fill={true}
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+          )}
           <h2>Hi im the single post:{params.id}</h2>
-          {data && <PortableText value={data.content} />}
+          {data && data.content &&  <PortableText value={data.content} />}
         </div>
         <Carousel content={carouselContent} />
       </div>

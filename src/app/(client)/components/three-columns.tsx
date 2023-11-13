@@ -1,4 +1,4 @@
-import styles from "./text-and-image.module.scss";
+import styles from "./three-columns.module.scss";
 import { BlockProps } from "../interfaces/interfaces";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";

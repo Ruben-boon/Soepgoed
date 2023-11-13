@@ -1,34 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Work+Sans:wght@400;500;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Work+Sans:wght@400;500;600;700;900&display=swap");
 @import "./styles/classes";
-
 
 :root {
   --max-width: 1200px;
 
   --text-dark: black;
   --text-light: white;
-  --text-gray: #A7A7A7;;
+  --text-gray: #a7a7a7;
 
-  --color-green:#A7C957;
-  --color-green-hover:#93b14c;
+  --color-green: #a7c957;
+  --color-green-hover: #93b14c;
 
-  --color-green-light: #CAD7A2;
-  --color-green-dark: #60A561;
-  --color-green-darkest: #00473B;
+  --color-green-light: #cad7a2;
+  --color-green-dark: #60a561;
+  --color-green-darkest: #00473b;
 
-  --color-red: #D95D39;
+  --color-red: #d95d39;
   --color-red-hover: #c95535;
-  --color-red-dark: #B44322;
-  --color-red-light: #E17C61;
+  --color-red-dark: #b44322;
+  --color-red-light: #e17c61;
 
-  --color-beige-light: #FFFCF1;
-  --color-beige: #F2D7A3;
+  --color-beige-light: #fffcf1;
+  --color-beige: #f2d7a3;
 
   --border-radius-small: 10px;
   --border-radius-medium: 20px;
   --border-radius-large: 30px;
 
-  --box-shadow-small:rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --box-shadow-small: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 p,
@@ -62,7 +61,11 @@ h5 {
   line-height: 48px;
   letter-spacing: 1pt;
   word-wrap: break-word;
-
+}
+h3 {
+  font-size: 32px;
+  line-height: 32px;
+  margin-bottom: 0;
 }
 * {
   box-sizing: border-box;
@@ -88,5 +91,9 @@ ol {
 a {
   text-decoration: none;
   color: var(--text-dark);
-  font-family: "Lambda", sans-serif;
+}
+strong {
+  color: var(--color-red);
+  font-family: var(--font-lambda);
+  font-size:20px;
 }

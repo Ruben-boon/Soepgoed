@@ -4,7 +4,11 @@
     align-items: center;
     padding-top: 128px;
     padding-bottom: 32px;
-    gap: 64px;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 108px;
 }
 .textGroup {
     max-width: 540px;

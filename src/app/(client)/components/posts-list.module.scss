@@ -1,7 +1,7 @@
 .postsListContainer {
   display: flex;
   flex-direction: column;
-  gap:80px;
+  gap: 80px;
   padding-top: 40px;
   h2 {
     font-size: 48px;
@@ -17,6 +17,7 @@
 }
 .cardGroup {
   width: calc(33% - 32px);
+  margin-bottom: 64px;
 }
 
 @media screen and (max-width: 768px) {

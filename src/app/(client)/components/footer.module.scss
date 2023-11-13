@@ -1,8 +1,8 @@
 .footer {
   background-color: #00473b;
   position: relative;
-  padding-top: 152px;
-  margin-top: 176px;
+  padding-top: 208px;
+  margin-top: 208px;
   padding-bottom: 48px;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,13 @@
 .socialGroup {
   display: flex;
   gap: 16px;
+  a {
+    &:hover {
+      a {
+        box-shadow: var(--shadow-medium);
+      }
+    }
+  }
 }
 .bannerContainer {
   position: absolute;
@@ -46,15 +53,17 @@
   left:50%;
   transform: translate(-50%, 50%);
   z-index: 100;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
-  border-radius: var(--corner-radius);
-  box-shadow: rgba(0, 0, 0, 0.164) 0px 5px 15px;
+  padding-top: 49px;
+  padding-bottom: 48px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-medium);
+  display:flex;
 }
 .textGroup {
   display: flex;
+  flex:1;
   flex-direction: column;
   gap: 16px;
   max-width: 700px;
