@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import styles from "./hero.module.scss";
 import { BlockProps } from "../interfaces/interfaces";
 import Button from "./button";
+import { useEffect } from "react";
 // import Button from "./button";
 
 interface Hero {
@@ -9,6 +11,17 @@ interface Hero {
 }
 
 const Hero: React.FC<Hero> = ({ content }) => {
+
+  useEffect(() => {
+    const headingElement = document.querySelector(`.${styles.heading}`);
+
+    if (headingElement) {
+      const words = headingElement.textContent?.split(' ');
+      const lastWord = words?.pop();
+      headingElement.innerHTML = words?.join(' ') + ` <span class="lastWord">${lastWord}</span>`;
+    }
+  }, [content.heading]);
+
   return (
     <div className={` ${styles.header}`}>
       <div className={`${styles.headerContainer} ${"container"}`}>

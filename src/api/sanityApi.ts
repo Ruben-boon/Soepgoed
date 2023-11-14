@@ -37,10 +37,10 @@ export async function fetchPage(pageUrl: string) {
           'buttonLink': buttonGroup.buttonLink->urlSlug.current
         },
         'buttonGroupTwo': {
-          'buttonText': buttonGroup.buttonText,
-          'buttonToggle': buttonGroup.buttonToggle,
-          'buttonVariant': buttonGroup.buttonVariant,
-          'buttonLink': buttonGroup.buttonLink->urlSlug.current
+          'buttonText': buttonGroupTwo.buttonText,
+          'buttonToggle': buttonGroupTwo.buttonToggle,
+          'buttonVariant': buttonGroupTwo.buttonVariant,
+          'buttonLink': buttonGroupTwo.buttonLink->urlSlug.current
         },
         formFields,
         textPosition,

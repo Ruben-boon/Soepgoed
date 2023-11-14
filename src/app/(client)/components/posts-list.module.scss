@@ -21,13 +21,17 @@
 }
 
 @media screen and (max-width: 768px) {
+  .postsListContainer {
+    padding-top: 16px;
+    gap:40px;
+  }
   .cardGroup {
     width: 100%;
   }
   .postsListGroup {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 40px;
     margin: 0;
   }
 }

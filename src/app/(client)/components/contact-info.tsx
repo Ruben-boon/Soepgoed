@@ -12,7 +12,6 @@ export interface ContactInfoProps {
 
 const ContactInfo: React.FC<ContactInfoProps> = async ({ content }) => {
   const data = await fetchContactInfo();
-  console.log(data);
 
   return (
     <div className={styles.contactInfo}>

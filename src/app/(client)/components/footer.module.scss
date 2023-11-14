@@ -71,10 +71,16 @@
 
 @media only screen and (max-width: 767px) {
   .footer {
-    padding-top: 208px;
+    padding-top: 328px;
+    margin-top: 328px;
   }
   .image {
     display: none;
+  }
+  .bannerContainer {
+    margin: 0 16px 0 16px;
+    width: calc(100% - 32px);
+    left: calc(50% - 16px);
   }
   .footerContainer {
     justify-content: space-around;

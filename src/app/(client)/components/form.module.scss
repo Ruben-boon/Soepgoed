@@ -1,5 +1,5 @@
 .form {
-    padding: 48px 40px 48px 40px;
+  padding: 48px 40px 48px 40px;
   background-color: #eff1d9;
   width: fit-content;
   border-radius: var(--border-radius-medium);
@@ -7,25 +7,40 @@
   flex-direction: column;
   gap: 20px;
   align-items: flex-end;
+
+  @media only screen and (max-width: 600px) {
+    padding: 24px;
+    width: 100%;
+    align-items: center;
+  }
 }
+
 .heading {
   margin-bottom: 16px;
-  width:100%;
+  width: 100%;
 }
+
 .submit {
   margin-top: 8px;
   font-size: 16px;
 }
+
 .inputGroup {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
   min-width: 400px;
+
+  @media only screen and (max-width: 600px) {
+    min-width: unset;
+  }
 }
+
 .label {
   color: #6d6d6d;
 }
+
 .input,
 .select,
 .textArea {
@@ -34,6 +49,7 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
 .textArea {
-    min-height: 160px;
+  min-height: 160px;
 }

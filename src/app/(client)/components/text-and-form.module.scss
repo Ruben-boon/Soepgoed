@@ -13,3 +13,18 @@
 .textGroup {
     max-width: 540px;
 }
+@media only screen and (max-width: 768px) {
+    .textAndForm {
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 64px;
+        padding-bottom: 16px;
+    }
+    .container {
+        flex-direction: column;
+        gap: 64px;
+    }
+    .textGroup {
+        max-width: none;
+    }
+}

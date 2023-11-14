@@ -46,9 +46,14 @@
   .feature {
     margin-top: 64px;
     padding-top: 160px;
+    .textGroup {
+      padding:24px;
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
   }
   .feature::before {
-    clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 6%, 100% 100%, 0 100%);
     background-size: 800px;
     background-position: right -104px top -50px;
   }

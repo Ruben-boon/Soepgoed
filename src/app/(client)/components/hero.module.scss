@@ -79,10 +79,11 @@
 //mobile
 @media only screen and (max-width: 768px) {
   .header {
-    padding: 64px 0 64px 0;
+    padding: 32px 0 64px 0;
   }
-  .heading {
-    font-size: 68px;
+  .heading, .lastWord {
+    font-size: 60px;
+    line-height: 52px
   }
   .paragraph {
     font-size: 18px;

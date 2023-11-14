@@ -21,7 +21,13 @@
   @media only screen and (max-width: 768px) {
     .textAndImageContainer{
       gap:32px;
-      margin: 64x 0 64px 0;
+      padding-top: 64px;
+    }
+    .textGroup {
+      gap: 24px;
+    }
+    .textAndImage{
+      padding-bottom: 0;
     }
     .image {
       flex: 0 1 auto

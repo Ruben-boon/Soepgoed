@@ -27,7 +27,7 @@
   --border-radius-medium: 20px;
   --border-radius-large: 30px;
 
-  --box-shadow-small: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --box-shadow-small: rgba(96, 90, 69, 0.347) 0px 7px 22px 0px;
 }
 
 p,
@@ -45,7 +45,6 @@ small {
   font-family: var(--font-manrope);
   font-size: 16px;
   line-height: 25px;
-  letter-spacing: 0.2px;
   font-feature-settings: "kern" 1;
   font-kerning: normal;
   text-size-adjust: 100%;
@@ -55,12 +54,18 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+.lastWord {
   font-family: var(--font-lambda);
   font-size: 48px;
   line-height: 48px;
-  letter-spacing: 1pt;
+  // letter-spacing: 1pt;
   word-wrap: break-word;
+}
+.lastWord {
+  color: var(--color-green-dark);
+  font-size: 60px;
+  line-height: 52px;
 }
 h3 {
   font-size: 32px;
@@ -95,5 +100,6 @@ a {
 strong {
   color: var(--color-red);
   font-family: var(--font-lambda);
-  font-size:20px;
+  font-size: 32px;
 }
+
