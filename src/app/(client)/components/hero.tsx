@@ -14,8 +14,9 @@ const Hero: React.FC<Hero> = ({ content }) => {
 
   useEffect(() => {
     const headingElement = document.querySelector(`.${styles.heading}`);
-
-    if (headingElement) {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (headingElement && isMobile) {
       const words = headingElement.textContent?.split(' ');
       const lastWord = words?.pop();
       headingElement.innerHTML = words?.join(' ') + ` <span class="lastWord">${lastWord}</span>`;

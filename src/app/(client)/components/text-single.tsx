@@ -11,9 +11,8 @@ interface TextProps {
 }
 
 const TextSingle: React.FC<TextProps> = ({ content }) => {
-
   return (
-    <div className={`${styles.text}` }>
+    <div className={`${styles.text} ${content.layout ? styles.home : ''}  `}>
       <div className={` ${styles.textContainer} ${"container"}`}>
         <div className={`${styles.textGroup} ${"textGroup"}`}>
           {content.content && <PortableText value={content.content} />}
@@ -23,5 +22,6 @@ const TextSingle: React.FC<TextProps> = ({ content }) => {
     </div>
   );
 };
+
 
 export default TextSingle;

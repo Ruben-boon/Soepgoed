@@ -9,7 +9,7 @@
 .contactGroup {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
 }
 .image {
   position: relative;
@@ -36,4 +36,17 @@
 .phone {
   color: var(--color-green-dark);
   font-weight: 600;
+}
+@media (max-width: 768px) {
+  .image {
+    display: none;
+  }
+  .contactGroup {
+    p {
+      text-align: center;
+    }
+  }
+  .socialGroup {
+    justify-content: center;
+  }
 }

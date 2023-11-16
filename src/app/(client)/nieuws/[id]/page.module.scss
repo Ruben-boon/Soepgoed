@@ -1,10 +1,10 @@
 .nieuwsContainer {
     display:flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 32px;
 }
 .postGroup {
-    max-width: 800px;
+    max-width: 640px;
     display:flex;
     flex-direction: column;
     gap: 48px;
@@ -13,4 +13,7 @@
     position: relative;
     width:100%;
     height:400px;
+    img { 
+        border-radius: var(--border-radius-medium);
+    };
 }

@@ -6,7 +6,7 @@ import Carousel from "../../components/carousel";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const data = await fetchPostSingle(`${params.id}`);
-  console.log(data);
+
   const carouselContent = {
     heading: "Ander Nieuws",
     excludePost: `${params.id}`,
@@ -27,11 +27,11 @@ const Page = async ({ params }: { params: { id: string } }) => {
               />
             </div>
           )}
-          <h2>Hi im the single post:{params.id}</h2>
-          {data && data.content &&  <PortableText value={data.content} />}
+          {data && data.heading && <h2>{data.heading}</h2>}
+          {data && data.content && <PortableText value={data.content} />}
         </div>
-        <Carousel content={carouselContent} />
       </div>
+      <Carousel content={carouselContent} />
     </main>
   );
 };

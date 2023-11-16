@@ -98,7 +98,7 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
 export async function fetchPostSingle(postSlug: string) {
   try {
     const post = await client.fetch(
-      groq`*[_type == 'post' && slug.current == '${postSlug}'][0]  {
+      groq`*[_type == 'post' && meta.slug.current == '${postSlug}'][0]  {
         '_key': _rev,
         heading,
         'slug': meta.slug.current,

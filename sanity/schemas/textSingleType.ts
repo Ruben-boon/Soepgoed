@@ -15,6 +15,11 @@ export const textSingleType = defineType({
       type: "array",
       of: [{ type: "block" }],
     },
+    {
+      name: "layout",
+      title: "Ignore this field",
+      type: "string",
+    }
   ],
   icon: TextIcon,
   preview: {
