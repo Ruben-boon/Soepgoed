@@ -62,34 +62,54 @@
   background-color: var(--color-green);
   color: var(--text-dark);
   color: white;
+  position: relative;
+  &:hover,
+  &:focus {
+    background-color: var(--color-green-hover);
+    box-shadow: var(--box-shadow-small);
+  }
+  &::after {
+    content: ''; 
+    position: absolute;
+    top: 50%; 
+    right: 8px; 
+    width: 16px; 
+    height: 16px; 
+    background: url('../../../../public/arrow.svg') no-repeat; 
+    background-size: contain; 
+    transform: translateY(-50%);
+  }
+}
+.secondary {
+  background-color: var(--color-green);
+
+  color: white;
+  position: relative;
   &:hover,
   &:focus {
     background-color: var(--color-green-hover);
     box-shadow: var(--box-shadow-small);
   }
 }
-.secondary {
-  background-color: var(--color-red);
-  color: white;
-  position: relative;
+.outline {
+  // background-color: white;
+  border: 1px solid var(--color-red);
+  // box-shadow: var(--button-outline-shadow);
+  color: var(--color-red);
+  font-weight: 500;
   &:hover,
   &:focus {
-    background-color: var(--color-red-hover);
+    background-color: var(--color-red);
+    // border:1px solid var(--button-outline-hover);
+    color: var(--text-light);
     box-shadow: var(--box-shadow-small);
+
   }
 }
-.outline {
-  background-color: white;
-  border: 1px solid var(--color-green-dark);
-  // box-shadow: var(--button-outline-shadow);
-  color: var(--color-green-dark);
-  font-weight: 500;
-
-  &:hover,
-  &:focus {
-    background-color: var(--button-outline-hover);
-    border:1px solid var(--button-outline-hover);
-    color: var(--button-outline-hover-text);
+@media screen and (max-width: 1232px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
 

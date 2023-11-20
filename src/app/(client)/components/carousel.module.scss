@@ -25,29 +25,26 @@
   width: 100%;
 }
 
+
 @media screen and (max-width: 768px) {
   .carousel {
     max-width: 100%;
   }
   .carouselContainer {
-    padding: 0 0 0 16px;
+    padding: 0 16px 0 16px;
   }
   .textGroup {
-    padding:16px;
+    padding: 16px;
     padding-left: 0;
     h2 {
-      font-size: 32px;
+      font-size: 28px;
     }
     a {
-      width:auto;
-      background-color: transparent;
-      padding-right: 0;
-      color: var(--color-green-dark);
+      width: auto;
     }
   }
-  .swiperSlide{
-    width:90%;
+  .swiperSlide {
+    width: 90%;
     margin-left: 0;
   }
-  
 }

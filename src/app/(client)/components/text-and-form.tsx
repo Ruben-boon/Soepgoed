@@ -16,7 +16,7 @@ const TextAndForm: React.FC<TextAndFormProps> = ({ content }) => {
             <PortableText value={content.content} />
           </div>
         )}
-        {content.formFields && <Form formFieldsAr={content.formFields}></Form>}
+        {content.formFields && <Form formFieldsAr={content.formFields} formHeading={content.heading}></Form>}
       </div>
     </div>
   );

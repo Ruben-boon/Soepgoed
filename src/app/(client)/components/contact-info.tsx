@@ -33,10 +33,20 @@ const ContactInfo: React.FC<ContactInfoProps> = async ({ content }) => {
               <p>{data.contactInfo.companyPostal}</p>
             )}
             {data.contactInfo.companyEmail && (
-              <p className={styles.email}>{data.contactInfo.companyEmail}</p>
+              <a
+                href={`mailto:${data.contactInfo.companyEmail}`}
+                className={styles.email}
+              >
+                {data.contactInfo.companyEmail}
+              </a>
             )}
             {data.contactInfo.companyPhone && (
-              <p className={styles.phone}>{data.contactInfo.companyPhone}</p>
+              <a
+                href={`tel:${data.contactInfo.companyPhone}`}
+                className={styles.phone}
+              >
+                {data.contactInfo.companyPhone}
+              </a>
             )}
             <div className={styles.socialGroup}>
               {data.contactInfo.companyFacebook && (

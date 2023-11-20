@@ -7,7 +7,7 @@
     max-width: 640px;
     display:flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 24px;
 }
 .image {
     position: relative;
@@ -17,3 +17,6 @@
         border-radius: var(--border-radius-medium);
     };
 }
+.date {
+    color: var(--color-green-dark);
+  }

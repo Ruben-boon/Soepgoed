@@ -20,8 +20,10 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({ content }) => {
             <Image
               src={content.imageSrc1}
               alt={content.imageAlt1}
-              fill={true}
-              style={{ objectFit: "cover" }}
+              width={400}
+              height={320}
+              // fill={true}
+              style={{ objectFit: "contain" }}
             />
           </div>
         )}
@@ -30,8 +32,10 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({ content }) => {
             <Image
               src={content.imageSrc2}
               alt={content.imageAlt2}
-              fill={true}
-              style={{ objectFit: "cover" }}
+              width={400}
+              height={320}
+              // fill={true}
+              style={{ objectFit: "contain" }}
             />
           </div>
         )}
@@ -40,8 +44,10 @@ const ThreeColumns: React.FC<ThreeColumnsProps> = ({ content }) => {
             <Image
               src={content.imageSrc3}
               alt={content.imageAlt3}
-              fill={true}
-              style={{ objectFit: "cover" }}
+              width={400}
+              height={320}
+              // fill={true}
+              style={{ objectFit: "contain" }}
             />
           </div>
         )}

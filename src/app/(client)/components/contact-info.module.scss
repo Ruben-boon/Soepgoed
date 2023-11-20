@@ -37,6 +37,12 @@
   color: var(--color-green-dark);
   font-weight: 600;
 }
+@media (min-width: 768px) {
+ .contactInfo {
+  margin-top: -64px;
+ }
+}
+
 @media (max-width: 768px) {
   .image {
     display: none;

@@ -15,6 +15,11 @@ export const textAndFormType = defineType({
       of: [{ type: "block" }],
     },
     buttonType,
+    {
+      title: "Form heading",
+      name: "heading",
+      type: "string",
+    },
     defineField({
       name: "formFields",
       title: "Form fields",

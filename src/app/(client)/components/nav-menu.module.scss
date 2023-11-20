@@ -8,17 +8,7 @@
   flex-direction: row;
   gap: 32px;
   width: 100%;
-  a {
-    transition: all 250ms ease-in-out;
-    &:nth-last-child(3) {
-      margin-left: auto;
-    }
-    &:hover:not(.button) {
-      color: var(--color-red);
-      transform: scale(1.05);
-    }
-  }
-  
+ 
 }
 .image {
   height: 80px;
@@ -46,8 +36,21 @@
     width: 16px;
   }
 }
-
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 848px) { 
+  .linkGroup {
+    a.link {
+      transition: all 250ms ease-in-out;
+      &:nth-last-child(3) {
+        margin-left: auto;
+      }
+      &:hover {
+        color: var(--color-red);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 848px) {
   .navContainer {
     flex-direction: row!important;
     position: static;

@@ -3,12 +3,18 @@
   padding: 260px 0 80px 0;
   margin: 132px 0 64px 0;
   width:100%;
+
 }
 .textGroup {
   background-color: var(--color-red-light);
   border-radius: var(--border-radius-large);
-  color: var(--text-light);
   padding: 64px;
+  h1,h2,h3,h4{
+    color: white;
+  }
+  p{
+    color: rgb(238, 238, 238);
+  }
 }
 
 //angled background and veggies
@@ -22,7 +28,7 @@
   z-index: -1;
   clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
   transform-origin: 0 0;
-  background: url(../../../../public/Veggies.webp) no-repeat;
+  background: url(../../../../public/veggies_v2.webp) no-repeat;
   background-size: 1000px;
   background-position: right 50px top -50px;
   background-color: var(--color-red);

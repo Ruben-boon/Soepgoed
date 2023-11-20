@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import { fetchSettings, formatSettingsData } from "@/api/sanityApi";
 import { Capriola } from "next/font/google";
 import localFont from "@next/font/local";
+import { useParams } from "next/navigation";
 
 const capriola = Capriola({
   subsets: ["latin"],

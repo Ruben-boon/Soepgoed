@@ -49,6 +49,7 @@ small {
   font-kerning: normal;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  color:#4A4A4A;
 }
 h1,
 h2,
@@ -59,8 +60,9 @@ h5,
   font-family: var(--font-lambda);
   font-size: 48px;
   line-height: 48px;
-  // letter-spacing: 1pt;
   word-wrap: break-word;
+  font-weight: 500;
+  color:#171717;
 }
 .lastWord {
   color: var(--color-green-dark);
@@ -101,5 +103,9 @@ strong {
   color: var(--color-red);
   font-family: var(--font-lambda);
   font-size: 32px;
+}
+img {
+  max-width: 100%;
+
 }
 

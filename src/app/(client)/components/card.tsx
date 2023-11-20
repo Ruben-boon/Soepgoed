@@ -36,9 +36,10 @@ const publishDate = content.publishedAt ? content.publishedAt : content._created
           <div className={`${styles.image} ${"image"}`}>
             <Image
               src={content.imageSrc}
+              height={300}
+              width={390}
               alt={content.imageAlt}
               priority={false}
-              fill={true}
               style={{ objectFit: "cover" }}
             />
           </div>

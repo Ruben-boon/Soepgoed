@@ -59,7 +59,7 @@ const Hero: React.FC<Hero> = ({ content }) => {
               alt={content.imageAlt}
               priority={true}
               fill={true}
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "contain" }}
             />
           </div>
         )}

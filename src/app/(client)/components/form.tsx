@@ -5,9 +5,10 @@ import { formFieldFormat } from "../utils/dataFormat";
 
 interface FormProps {
   formFieldsAr: string[]; 
+  formHeading?: string;
 }
 
-const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
+const Form: React.FC<FormProps> = ({ formFieldsAr, formHeading }) => {
 
   const formFields = formFieldFormat(formFieldsAr);
 
@@ -48,19 +49,9 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
 
     // Add your validation logic here
     if (name.trim() === "" || email.trim() === "" || date.trim() === "") {
-      setError("Please fill in all required fields.");
+      setError("Graag alle velden invullen.");
       return;
     }
-
-    // Now you can use 'name', 'email', 'people', 'date', 'phone', and 'message' in your submission logic
-    // For example, you can console.log them to see the values.
-
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Number of People:", people);
-    console.log("Date:", date);
-    console.log("Phone:", phone);
-    console.log("Message:", message);
 
     setName("");
     setEmail("");
@@ -74,12 +65,12 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.heading}>
-        <h2>Meld je aan om te komen eten</h2>
+        {formHeading && <h2>{formHeading}</h2>}
       </div>
       {formFields.name && (
         <div className={`${styles.name} ${styles.inputGroup}`}>
           <label htmlFor="name" className={styles.label}>
-            Name:
+            Naam:
           </label>
           <input
             type="text"
@@ -107,7 +98,7 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
       {formFields.people && (
         <div className={`${styles.amount} ${styles.inputGroup}`}>
           <label htmlFor="people" className={styles.label}>
-            Number of People:
+            Aantal personen:
           </label>
           <select
             id="people"
@@ -126,7 +117,7 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
       {formFields.date && (
         <div className={`${styles.name} ${styles.inputGroup}`}>
           <label htmlFor="date" className={styles.label}>
-            Date:
+            Datum:
           </label>
           <input
             type="date"
@@ -140,7 +131,7 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
       {formFields.phone && (
         <div className={`${styles.phone} ${styles.inputGroup}`}>
           <label htmlFor="phone" className={styles.label}>
-            Phone:
+            Telefoon:
           </label>
           <input
             type="tel"
@@ -154,7 +145,7 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
       {formFields.message && (
         <div className={`${styles.message} ${styles.inputGroup}`}>
           <label htmlFor="message" className={styles.label}>
-            Message:
+            Bericht:
           </label>
           <textarea
             id="message"
@@ -166,7 +157,7 @@ const Form: React.FC<FormProps> = ({ formFieldsAr }) => {
       )}
       {error && <p>{error}</p>}
       <button type="submit" className={`primary button ${styles.submit}`}>
-        Submit
+        Verzenden
       </button>
     </form>
   );

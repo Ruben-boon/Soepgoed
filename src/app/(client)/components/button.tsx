@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "../interfaces/interfaces";
-import spatula from "../../../../public/spatulaIcon.svg"
+import spatula from "../../../../public/spatulaIcon.svg";
+import arrow from "../../../../public/arrow.svg";
+
 
 interface ButtonProps {
   content: Button;
@@ -17,6 +19,12 @@ const Button: React.FC<ButtonProps> = ({ content }) => {
           className={`${"button"} ${content.buttonVariant}`}
         >
           {content.buttonText}
+          {content.buttonVariant === "secondary" && (
+            <img src={spatula.src}></img>
+          )}
+          {content.buttonVariant === "primary" && (
+            <img src={arrow.src}></img>
+          )}
         </Link>
       )}
     </>

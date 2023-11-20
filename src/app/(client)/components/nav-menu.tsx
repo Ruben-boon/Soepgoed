@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./nav-menu.module.scss";
 import { useState } from "react";
+import Button from "./button";
 
 type NavMenuProps = {
   menuAr: { url: string; label: string }[];
@@ -10,7 +11,13 @@ type NavMenuProps = {
     logoSrc?: string;
     button?: "primary" | "secondary";
   };
+  currentPath?: string;
 };
+
+interface MenuItem {
+  url: string;
+  label: string;
+}
 
 const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,20 +47,32 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
         <div className={`${styles.linkGroup} ${menuOpen ? styles.open : ""}`}>
           {menuAr &&
             menuAr.length > 0 &&
-            menuAr.map(
-              (item: { url: string; label: string }, index: number) => {
-                const isLastItem = index === menuAr.length - 1;
-                const itemClasses =
-                  isLastItem && settings.button
-                    ? `button ${settings.button} ${styles.button}`
-                    : "";
+            menuAr.map((item: MenuItem, index: number) => {
+              if (index === menuAr.length - 1 && settings.button) {
+                // Render Button component for the last item
+                const itemClasses = styles.button;
+                const buttonContent = {
+                  buttonLink: item.url,
+                  buttonText: item.label,
+                  buttonVariant: "primary",
+                  buttonToggle: false, // You may set this to true if needed
+                };
+                return <Button key={index} content={buttonContent} />;
+              } else {
+                // Render Link component for other items
                 return (
-                  <Link key={index} href={item.url} onClick={() => setMenuOpen(false)} as={`/${item.url}`} className={itemClasses}>
+                  <Link
+                    key={index}
+                    href={item.url}
+                    onClick={() => setMenuOpen(false)}
+                    as={`/${item.url}`}
+                    className={styles.link}
+                  >
                     {item.label}
                   </Link>
                 );
               }
-            )}
+            })}
           <div
             className={`${styles.crossGroup} `}
             onClick={() => setMenuOpen(false)}

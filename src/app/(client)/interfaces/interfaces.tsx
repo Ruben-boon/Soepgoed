@@ -28,7 +28,7 @@ export interface BlockProps {
 export interface Button {
   buttonLink?: string;
   buttonText?: string;
-  buttonVariant?: "primary" | "outline" | "secondary";
+  buttonVariant?: "primary" | "outline" | "secondary" | string;
   buttonToggle?: Boolean;
 }
 
