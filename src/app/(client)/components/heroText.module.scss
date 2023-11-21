@@ -19,12 +19,8 @@
   margin-left: -140px;
   flex: 1;
   z-index: 2;
-  &.imageFullNoText,
-  &.imageFullTextLeft,
-  &.imageFullTextRight {
-    position: static;
-    height: auto;
-  }
+  position: static;
+  height: auto;
 }
 .textGroup {
   padding-top: 80px;
@@ -34,40 +30,18 @@
   height: 100%;
   position: relative;
   z-index: 1;
-  &.imageFullNoText,
-  &.imageFullTextLeft,
-  &.imageFullTextRight {
-    z-index: 3;
-    border-radius: var(--border-radius-medium);
-    background-color: var(--color-red-light);
-    padding: 64px;
-    margin-top: 92px;
-    margin-bottom: 92px;
-    backdrop-filter: blur(8px);
-    * {
-      color: var(--text-light);
-    }
+  z-index: 3;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-red-light);
+  padding: 64px;
+  margin-top: 92px;
+  margin-bottom: 92px;
+  backdrop-filter: blur(8px);
+  * {
+    color: var(--text-light);
   }
 }
-//desktop
-@media only screen and (min-width: 768px) {
-  .splitTextLeft.textGroup {
-    &:before {
-      content: "";
-      position: absolute;
-      top: -60px;
-      left: -32px;
-      width: 130%;
-      height: 120%;
-      background-image: url("../../../../public/blob.svg");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-    }
-  }
-}
-//tablet
+
 @media only screen and (max-width: 917px) {
   .image {
     height: 100%;
@@ -77,6 +51,7 @@
     }
   }
 }
+
 //mobile
 @media only screen and (max-width: 768px) {
   .header {
@@ -107,7 +82,7 @@
     width: 100%;
     margin-left: 0;
     height: 400px;
-    display:none;
+    display: none;
   }
   .buttonContainer {
     flex-direction: column;

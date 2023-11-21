@@ -44,12 +44,13 @@ em,
 small {
   font-family: var(--font-manrope);
   font-size: 16px;
-  line-height: 25px;
-  font-feature-settings: "kern" 1;
+  line-height: calc(16px * 1.4);
+  // font-feature-settings: "kern" 1;
   font-kerning: normal;
   text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   color:#4A4A4A;
+  max-width: 600px;
 }
 h1,
 h2,
@@ -59,7 +60,8 @@ h5,
 .lastWord {
   font-family: var(--font-lambda);
   font-size: 48px;
-  line-height: 48px;
+  line-height: calc(48px * 1.1);
+  letter-spacing: -0.0125em;
   word-wrap: break-word;
   font-weight: 500;
   color:#171717;
@@ -106,6 +108,10 @@ strong {
 }
 img {
   max-width: 100%;
-
 }
-
+.body-scroll-lock {
+  overflow: hidden;
+}
+html.body-scroll-lock {
+  overflow: hidden;
+}

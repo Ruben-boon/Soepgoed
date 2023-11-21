@@ -2,8 +2,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./nav-menu.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./button";
+import { usePathname } from "next/navigation";
+import path from "path";
 
 type NavMenuProps = {
   menuAr: { url: string; label: string }[];
@@ -21,12 +23,35 @@ interface MenuItem {
 
 const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+
+  useEffect(() => {
+    const bodyHtmlElement = document.querySelector(
+      "html, body"
+    ) as HTMLHtmlElement | null;
+    if (bodyHtmlElement) {
+      if (menuOpen) {
+        bodyHtmlElement.classList.add("body-scroll-lock");
+      } else {
+        bodyHtmlElement.classList.remove("body-scroll-lock");
+      }
+    }
+    return () => {
+      if (bodyHtmlElement) {
+        bodyHtmlElement.classList.remove("body-scroll-lock");
+      }
+    };
+  }, [menuOpen]);
 
   return (
     <nav className={styles.nav}>
       <div className={`${styles.navContainer} ${"container"}`}>
         {settings.logoSrc && (
-          <Link href="/" className={styles.image}>
+          <Link
+            href="/"
+            className={`${styles.image} ${menuOpen ? styles.open : ""}`}
+          >
             <Image
               src={settings.logoSrc}
               alt={"Logo van soepgoed"}
@@ -66,7 +91,10 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                     href={item.url}
                     onClick={() => setMenuOpen(false)}
                     as={`/${item.url}`}
-                    className={styles.link}
+                    //the substring removes the leading slash to compare the url to the pathname
+                    className={`${
+                      item.url == pathname.substring(1) ? styles.currentPath : ""
+                    }  ${styles.link}  `}
                   >
                     {item.label}
                   </Link>

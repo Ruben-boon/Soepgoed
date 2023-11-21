@@ -6,10 +6,10 @@ import { imageType } from "./imageType";
 import { buttonType } from "./buttonType";
 import { buttonTypeTwo } from "./buttonTypeTwo";
 
-export const heroType = defineType({
-  name: "hero",
+export const heroTextType = defineType({
+  name: "heroText",
   type: "object",
-  title: "Hero",
+  title: "Hero with text",
   fields: [
     defineField({
       name: "heading",
@@ -32,7 +32,7 @@ export const heroType = defineType({
     prepare({ title, image }) {
       return {
         title: title || "Untitled",
-        subtitle: "Hero",
+        subtitle: "Hero with text",
         media: image || ImageIcon,
       };
     },

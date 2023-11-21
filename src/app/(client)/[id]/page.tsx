@@ -3,7 +3,7 @@ import { mapComponent } from "../utils/componentMap";
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const data = await fetchPage(`${params.id}`);
-
+  
   return (
     <main>
       {data &&

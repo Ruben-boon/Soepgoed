@@ -48,11 +48,9 @@
     display: none;
   }
   .contactGroup {
-    p {
-      text-align: center;
-    }
+    gap: 12px;
   }
   .socialGroup {
-    justify-content: center;
+    margin-top:16px;
   }
 }

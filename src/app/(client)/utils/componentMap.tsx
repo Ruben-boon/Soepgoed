@@ -12,6 +12,7 @@ import ThreeColumns from "../components/three-columns";
 import ContactInfo from "../components/contact-info";
 import DonateSingle from "../components/donate";
 import Donate from "../components/donate";
+import HeroText from "../components/heroText";
 
 
 const componentMapping = {
@@ -27,6 +28,7 @@ const componentMapping = {
     threeColumns: ThreeColumns,
     contactInfo: ContactInfo,
     donate: Donate,
+    heroText: HeroText
   };
   // @ts-ignore
  export const mapComponent = (type) => componentMapping[type];

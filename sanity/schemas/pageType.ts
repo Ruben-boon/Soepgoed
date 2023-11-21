@@ -91,6 +91,11 @@ export const pageType = defineType({
           type: "donate",
           title: "Donate",
         }),
+        defineField({
+          name: "heroText",
+          type: "heroText",
+          title: "Hero with text",
+        }),
       ],
       icon: ImageIcon,
     }),

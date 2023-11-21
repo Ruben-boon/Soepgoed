@@ -29,9 +29,11 @@
 @media screen and (max-width: 768px) {
   .carousel {
     max-width: 100%;
+    padding-top: 0;
   }
   .carouselContainer {
     padding: 0 16px 0 16px;
+    gap:16px;
   }
   .textGroup {
     padding: 16px;

@@ -1,5 +1,5 @@
 .textAndImage {
-    padding: 40px 0 40px 0;
+    padding: 16px 0 16px 0;
     width:100%;
   }
   .textAndImageContainer {
@@ -7,6 +7,9 @@
   }
   .textGroup {
     flex: 1;
+    p, strong {
+      max-width: 500px;
+    }
   }
   .image {
     position: relative;
