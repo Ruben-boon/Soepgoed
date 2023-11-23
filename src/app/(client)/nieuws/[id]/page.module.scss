@@ -8,7 +8,12 @@
     display:flex;
     flex-direction: column;
     gap: 24px;
+    a {
+        color: var(--color-green-dark);
+        text-decoration: underline;
+    }
 }
+
 .image {
     position: relative;
     width:100%;

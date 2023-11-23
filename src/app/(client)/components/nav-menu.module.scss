@@ -19,7 +19,8 @@
   z-index: 101;
 }
 .currentPath {
-  color: var(--color-red);
+  color: var(--color-green-dark);
+  border-bottom: 1.5px solid var(--color-green-dark)
 }
 
 //hamburger menu for both desktop and mobile
@@ -51,7 +52,7 @@
         margin-left: auto;
       }
       &:hover {
-        color: var(--color-red);
+        color: var(--color-green-dark);
         transform: scale(1.05);
       }
     }

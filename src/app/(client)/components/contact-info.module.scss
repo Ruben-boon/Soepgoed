@@ -1,5 +1,7 @@
 .contactInfo {
   margin-top: 40px;
+  display: flex;
+  gap: 16px;
 }
 .textGroup {
   display: flex;
@@ -9,7 +11,7 @@
 .contactGroup {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 20px;
 }
 .image {
   position: relative;

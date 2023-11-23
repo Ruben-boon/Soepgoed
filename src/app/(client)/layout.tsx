@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.scss";
 import NavMenu from "./components/nav-menu";
 import Footer from "./components/footer";
 import { fetchSettings, formatSettingsData } from "@/api/sanityApi";
-import { Capriola } from "next/font/google";
 import localFont from "@next/font/local";
 import { useParams } from "next/navigation";
 
-const capriola = Capriola({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-capriola",
-});
+
 // const manrope = Manrope({
 //   subsets: ["latin"],
 //   weight: "400",
@@ -24,7 +19,7 @@ const lambda = localFont({
   variable: "--font-lambda",
 });
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,8 +35,8 @@ export default async function RootLayout({
   const settingsData = formatSettingsData(data);
 
   return (
-    <html lang="en" className={`${capriola.variable} ${lambda.variable}`}>
-      <body className={inter.className}>
+    <html lang="en" className={`${manrope} ${lambda.variable}`}>
+      <body className={manrope.className}>
         <NavMenu
           settings={settingsData.navSettings}
           menuAr={settingsData.menu}
