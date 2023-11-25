@@ -70,18 +70,6 @@
     margin-left: 0px;
     // box-shadow: var(--box-shadow-small);
   }
-  &::after {
-    content: ''; 
-    position: absolute;
-    top: 50%; 
-    right: 8px; 
-    width: 16px; 
-    height: 16px; 
-    background: url('../../../../public/arrow.svg') no-repeat; 
-    background-size: contain; 
-    transform: translateY(-50%);
-    transition: all 250ms ;
-  }
 }
 .secondary {
   background-color: var(--color-green);
