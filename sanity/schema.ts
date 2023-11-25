@@ -23,9 +23,6 @@ import { contactInfoType } from './schemas/contactType'
 import { donateType } from './schemas/donateType'
 import { heroTextType } from './schemas/heroTextType'
 
-
-
-
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [postType, heroTextType, contactSubType, donateType, contactInfoType, threeColumnsType, twoColumnsType, imageFullType, postsListType, textAndFormType, metaDataSubType, settingsSubType, footerSubType, navSubType, pageType, heroType,carouselType, textSingleType, textAndImageType, featureType],
 }

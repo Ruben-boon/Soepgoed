@@ -28,7 +28,7 @@ const componentMapping = {
     threeColumns: ThreeColumns,
     contactInfo: ContactInfo,
     donate: Donate,
-    heroText: HeroText
+    heroText: HeroText,
   };
   // @ts-ignore
  export const mapComponent = (type) => componentMapping[type];

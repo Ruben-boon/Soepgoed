@@ -21,7 +21,6 @@ export const heroTextType = defineType({
     }),
     imageType,
     buttonType,
-    buttonTypeTwo,
   ],
   icon: ImageIcon,
   preview: {
