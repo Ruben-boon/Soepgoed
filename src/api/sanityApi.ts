@@ -4,7 +4,7 @@ const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2023-02-08",
-  useCdn: false,
+  useCdn: true,
 };
 export const client = createClient(config);
 
