@@ -14,7 +14,6 @@
   }
 }
 .image {
-  height: 80px;
   // margin-top: -20px;
   z-index: 101;
 }
@@ -102,7 +101,7 @@
   .linkGroup {
     display: none;
     position: fixed;
-    background-color: var(--color-green-dark);
+    background-color: var(--color-red-dark);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;

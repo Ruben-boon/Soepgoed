@@ -41,6 +41,7 @@
 .button {
   border-radius: 100px;
   border: 1px solid transparent;
+  position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -50,12 +51,22 @@
   margin-left: 4px;
   margin-bottom: 0;
   padding: calc(0.7rem - 1px) calc(1.7rem - 1px);
-  transition: all 250ms;
+  transition: all .3s ease;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  // box-shadow: var(--box-shadow-small);
+  img {
+    position: absolute;
+    right: 20px;
+    margin-top: 2px;
+    transition: all .3s ease;
+  }
+  &:hover {
+    img {
+      right: 14px;
+    }
+  }
 }
 
 .primary {
@@ -63,23 +74,20 @@
   color: var(--text-dark);
   color: white;
   position: relative;
+  padding-right: 56px;
   &:hover,
   &:focus {
     background-color: var(--color-green-hover);
-    gap:12px;
-    margin-left: 0px;
-    // box-shadow: var(--box-shadow-small);
   }
 }
 .secondary {
-  background-color: var(--color-green);
-
+  background-color: var(--color-red);
   color: white;
   position: relative;
+  padding-right: 56px;
   &:hover,
   &:focus {
-    background-color: var(--color-green-hover);
-    box-shadow: var(--box-shadow-small);
+    background-color: var(--color-red-hover);
   }
 }
 .outline {
@@ -93,8 +101,6 @@
     background-color: var(--color-red);
     // border:1px solid var(--button-outline-hover);
     color: var(--text-light);
-    box-shadow: var(--box-shadow-small);
-
   }
 }
 @media screen and (max-width: 1232px) {
@@ -108,11 +114,19 @@
   .outline {
     pointer-events: none;
   }
-  .button{
+  .button {
     width: 100%;
     max-width: 100%;
     padding-top: 12px;
     padding-bottom: 12px;
-  }
+    img {
+      position: relative;
+      left: 8px;
+      margin-top: 2px;
+      &:hover {
+        left: 8px;
+      }
+    }
 
+  }
 }

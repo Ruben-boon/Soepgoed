@@ -67,8 +67,9 @@
     font-size: 18px;
   }
   .textGroup {
-    padding: 0px;
-    background: transparent;
+    padding:32px;
+    margin-top: 32px;
+    margin-bottom: 32px;
     &.imageFullNoText,
     &.imageFullTextLeft,
     &.imageFullTextRight {

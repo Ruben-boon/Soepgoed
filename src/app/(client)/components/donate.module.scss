@@ -6,23 +6,40 @@
     z-index: 1;
     position: relative;
 }
+
 .textGroup {
     display: flex;
     gap: 16px;
     flex-direction: column;
     max-width: 640px;
 }
+
 .textGroup.textDonate {
     padding: 32px;
     background-color: var(--color-green-darkest);
-        border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-medium);
     * {
         color: white;
     }
     strong {
         font-size: 32px;
     }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        background-image: url("../../../../public/radish.svg");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 248px;
+        height: 248px;
+
+    }
 }
+
 @media only screen and (max-width: 767px) {
     .container {
         flex-direction: column;

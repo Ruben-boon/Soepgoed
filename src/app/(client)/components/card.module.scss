@@ -5,6 +5,9 @@
   flex-direction: column-reverse;
   gap: 24px;
   cursor: pointer;
+  .paragraph {
+    height:90px;
+  }
   &:hover {
     .image {
       img {
@@ -15,6 +18,11 @@
   img {
     width: 100%;
   }
+}
+.arrow {
+  width:12px!important;
+  margin-top: 4px;
+  margin-left: 4px;
 }
 .date {
   color: var(--color-green-dark);

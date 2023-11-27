@@ -3,6 +3,7 @@ import styles from "./card.module.scss";
 import Image from "next/image";
 import { PostProps } from "../interfaces/interfaces";
 import Link from "next/link";
+import greenArrow from "../../../../public/greenArrow.svg";
 
 interface CardProps {
   content: PostProps;
@@ -30,7 +31,7 @@ const publishDate = content.publishedAt ? content.publishedAt : content._created
           {content.excerpt && (
             <p className={styles.paragraph}>{content.excerpt}</p>
           )}
-          <p className={styles.readMore}>Lees meer </p>
+          <p className={styles.readMore}>Lees meer <img className={styles.arrow} src={greenArrow.src}></img> </p>
         </div>
         {content.imageSrc && content.imageAlt && (
           <div className={`${styles.image} ${"image"}`}>
@@ -41,6 +42,7 @@ const publishDate = content.publishedAt ? content.publishedAt : content._created
               alt={content.imageAlt}
               priority={false}
               style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         )}

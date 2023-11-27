@@ -3,6 +3,9 @@
   display: flex;
   gap: 16px;
 }
+.container {
+  align-items: flex-end;
+}
 .textGroup {
   display: flex;
   flex-direction: column;
