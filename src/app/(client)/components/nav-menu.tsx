@@ -82,8 +82,8 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                   buttonToggle: false, // You may set this to true if needed
                 };
                 return (
-                  <div onClick={() => setMenuOpen(false)} className={styles.buttonHack}>
-                    <Button key={index} content={buttonContent} />
+                  <div key={index} onClick={() => setMenuOpen(false)} className={styles.buttonHack}>
+                    <Button  content={buttonContent} />
                   </div>
                 );
               } else {
