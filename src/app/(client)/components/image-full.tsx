@@ -17,6 +17,7 @@ const ImageFull: React.FC<ImageFullProps> = ({ content }) => {
               alt={content.imageAlt}
               fill={true}
               style={{ objectFit: "cover" }}
+              quality={100}
             />
           </div>
         )}

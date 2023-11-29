@@ -47,6 +47,7 @@ const HeroText: React.FC<HeroText> = ({ content }) => {
               priority={true}
               fill={true}
               style={{ objectFit: "cover" }}
+              quality={100}
             />
           </div>
         )}
