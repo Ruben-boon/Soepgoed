@@ -51,7 +51,7 @@ export async function fetchPage(pageUrl: string) {
         column3Content,
         height,
       }`
-    );
+    , { next: { revalidate: 60 } });
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);
@@ -86,7 +86,7 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
       }
     }[0...${amount}]`;
 
-    const posts = await client.fetch(query);
+    const posts = await client.fetch(query, { next: { revalidate: 60 } });
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
@@ -107,7 +107,7 @@ export async function fetchPostSingle(postSlug: string) {
         _createdAt,
         content
       }`
-    );
+    , { next: { revalidate: 60 } });
     console.log(post);
     return post;
   } catch (error) {
@@ -172,7 +172,7 @@ export async function fetchSettings() {
           }
         }
       ]`
-    );
+    , { next: { revalidate: 60 } });
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
@@ -197,7 +197,7 @@ export async function fetchContactInfo() {
           }
         }
       `
-    );
+    , { next: { revalidate: 60 } });
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
