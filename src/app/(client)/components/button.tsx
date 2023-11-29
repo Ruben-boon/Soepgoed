@@ -28,6 +28,9 @@ const Button: React.FC<ButtonProps> = ({ content }) => {
           {content.buttonVariant === "primary" && (
             <img src={arrow.src}></img>
           )}
+          {content.buttonVariant === "tertiary" && (
+            <img src={arrow.src}></img>
+          )}
         </Link>
       )}
     </>
