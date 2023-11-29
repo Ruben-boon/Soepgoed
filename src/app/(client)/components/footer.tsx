@@ -91,12 +91,19 @@ const Footer = ({ menuAr, settings, contactInfo, logo }: FooterProps) => {
             {settings.contentColumnTwo && (
               <PortableText value={settings.contentColumnTwo} />
             )}
-            {settings.buttonGroupTwo && <Button content={settings.buttonGroupTwo} />}
+            {settings.buttonGroupTwo && (
+              <Button content={settings.buttonGroupTwo} />
+            )}
           </div>
         </div>
       )}
       <div className={`${styles.crsContainer} ${"container"}`}>
-        <p>{contactInfo.copyright}</p>
+        <div className={styles.tmGroup}>
+          <p>{contactInfo.copyright}</p>
+          {/* <a href="https://www.rubenboon.nl" target="_blank">
+            Website door Ruben Boon
+          </a> */}
+        </div>
         <div className={styles.socialGroup}>
           {contactInfo.companyFacebook && (
             <a href={contactInfo.companyFacebook}>

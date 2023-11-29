@@ -23,6 +23,10 @@
     filter: brightness(0) invert(1);
   }
 }
+.tmGroup {
+  display: flex;
+  flex-direction: row;
+}
 .footerContainer {
   width: 100%;
   display: flex;
