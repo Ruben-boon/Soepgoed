@@ -48,10 +48,9 @@
   max-width: fit-content;
   justify-content: center;
   gap: 8px;
-  margin-left: 4px;
   margin-bottom: 0;
   padding: calc(0.7rem - 1px) calc(1.7rem - 1px);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -60,7 +59,7 @@
     position: absolute;
     right: 20px;
     margin-top: 2px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
   }
   &:hover {
     img {
@@ -103,17 +102,32 @@
     color: var(--text-light);
   }
 }
+.tertiary {
+  background-color: var(--color-green);
+  color: var(--text-dark);
+  color: white;
+  position: relative;
+  padding-right: 56px;
+  &:hover,
+  &:focus {
+    background-color: var(--color-green-hover);
+  }
+}
 @media screen and (max-width: 1232px) {
   .container {
     padding-left: 16px;
     padding-right: 16px;
   }
 }
+@media screen and (max-width: 848px) {
+  .tertiary {
+    background-color: var(--color-beige-light);
+    color: var(--color-red) !important;
+    font-weight: 500;
+  }
+}
 
 @media screen and (max-width: 768px) {
-  .outline {
-    pointer-events: none;
-  }
   .button {
     width: 100%;
     max-width: 100%;
@@ -127,6 +141,5 @@
         left: 8px;
       }
     }
-
   }
 }

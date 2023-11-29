@@ -7,6 +7,8 @@ import arrow from "../../../../public/arrow.svg";
 
 interface ButtonProps {
   content: Button;
+  onClick?: () => void;
+
 }
 
 const Button: React.FC<ButtonProps> = ({ content }) => {
@@ -19,11 +21,15 @@ const Button: React.FC<ButtonProps> = ({ content }) => {
           className={`${"button"} ${content.buttonVariant}`}
         >
           {content.buttonText}
+
           {content.buttonVariant === "secondary" && (
             <img src={spatula.src}></img>
           )}
           {content.buttonVariant === "primary" && (
             <img src={arrow.src}></img>
+          )}
+          {content.buttonVariant === "tertiary" && (
+            <img src={spatula.src}></img>
           )}
         </Link>
       )}

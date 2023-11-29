@@ -25,7 +25,6 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-
   useEffect(() => {
     const bodyHtmlElement = document.querySelector(
       "html, body"
@@ -79,10 +78,14 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                 const buttonContent = {
                   buttonLink: item.url,
                   buttonText: item.label,
-                  buttonVariant: "primary",
+                  buttonVariant: "tertiary",
                   buttonToggle: false, // You may set this to true if needed
                 };
-                return <Button key={index} content={buttonContent} />;
+                return (
+                  <div onClick={() => setMenuOpen(false)} className={styles.buttonHack}>
+                    <Button key={index} content={buttonContent} />
+                  </div>
+                );
               } else {
                 // Render Link component for other items
                 return (
@@ -93,7 +96,9 @@ const NavMenu = ({ menuAr, settings }: NavMenuProps) => {
                     as={`/${item.url}`}
                     //the substring removes the leading slash to compare the url to the pathname
                     className={`${
-                      item.url == pathname.substring(1) ? styles.currentPath : ""
+                      item.url == pathname.substring(1)
+                        ? styles.currentPath
+                        : ""
                     }  ${styles.link}  `}
                   >
                     {item.label}
