@@ -4,6 +4,7 @@ const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2023-02-08",
+  useCdn: true,
 };
 export const client = createClient(config);
 
@@ -51,7 +52,7 @@ export async function fetchPage(pageUrl: string) {
         column3Content,
         height,
       }`
-    , { next: { revalidate: 60 } });
+    , { next: { revalidate: 10 } });
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);
