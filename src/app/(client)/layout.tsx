@@ -23,7 +23,7 @@ const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Soepgoed Leiden",
-  description: "Welkom op de website van soepgoed in Leiden",
+  description: "Bij soepgoed leiden koken we samen met groentes van de markt",
 };
 
 export default async function RootLayout({
@@ -35,7 +35,7 @@ export default async function RootLayout({
   const settingsData = formatSettingsData(data);
 
   return (
-    <html lang="en" className={`${manrope} ${lambda.variable}`}>
+    <html lang="nl" className={`${manrope} ${lambda.variable}`}>
       <body className={manrope.className}>
         <NavMenu
           settings={settingsData.navSettings}

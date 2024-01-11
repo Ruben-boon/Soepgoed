@@ -1,6 +1,5 @@
 import { fetchPage } from "@/api/sanityApi";
 import { mapComponent } from "./utils/componentMap";
-import Form from "./components/form";
 
 const Home: React.FC = async () => {
   const data = await fetchPage("home");

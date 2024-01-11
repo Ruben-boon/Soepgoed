@@ -4,7 +4,7 @@ const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2023-02-08",
-  useCdn: true,
+  useCdn: false,
 };
 export const client = createClient(config);
 
@@ -52,7 +52,7 @@ export async function fetchPage(pageUrl: string) {
         column3Content,
         height,
       }`
-    , { next: { revalidate: 10 } });
+    , { next: { revalidate: 60 } });
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);
@@ -173,7 +173,7 @@ export async function fetchSettings() {
           }
         }
       ]`
-    , { next: { revalidate: 60 } });
+    );
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
