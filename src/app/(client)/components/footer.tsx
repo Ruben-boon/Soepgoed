@@ -41,6 +41,7 @@ type FooterProps = {
     copyright?: string;
   };
 };
+ 
 
 const Footer = ({ menuAr, settings, contactInfo, logo }: FooterProps) => {
   return (
