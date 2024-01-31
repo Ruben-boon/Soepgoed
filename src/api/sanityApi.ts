@@ -6,9 +6,11 @@ const config = {
   apiVersion: "2023-02-08",
   useCdn: false,
 };
+
 export const client = createClient(config);
 
 export async function fetchPage(pageUrl: string) {
+  const revalidate = 60;
   try {
     const pageData = await client.fetch(
       groq`*[_type == 'page' && urlSlug.current == '${pageUrl}'][0].pageBuilder[] {
@@ -51,8 +53,9 @@ export async function fetchPage(pageUrl: string) {
         column2Content,
         column3Content,
         height,
-      }`
-    , { next: { revalidate: 60 } });
+      }`,
+      { next: { revalidate } }
+    );
     return pageData;
   } catch (error) {
     console.error("Error fetching page data:", error);
@@ -61,6 +64,8 @@ export async function fetchPage(pageUrl: string) {
 }
 
 export async function fetchPosts(amount: number, excludePost: string | null) {
+  const revalidate = 60;
+
   try {
     const query = groq`*[_type == 'post'${
       excludePost ? ` && slug.current != "${excludePost}"` : ""
@@ -87,7 +92,7 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
       }
     }[0...${amount}]`;
 
-    const posts = await client.fetch(query, { next: { revalidate: 60 } });
+    const posts = await client.fetch(query, { next: { revalidate } });
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
@@ -96,6 +101,8 @@ export async function fetchPosts(amount: number, excludePost: string | null) {
 }
 
 export async function fetchPostSingle(postSlug: string) {
+  const revalidate = 60;
+
   try {
     const post = await client.fetch(
       groq`*[_type == 'post' && meta.slug.current == '${postSlug}'][0]  {
@@ -107,8 +114,9 @@ export async function fetchPostSingle(postSlug: string) {
         'imageAlt': alt,
         _createdAt,
         content
-      }`
-    , { next: { revalidate: 60 } });
+      }`,
+      { next: { revalidate } }
+    );
     console.log(post);
     return post;
   } catch (error) {
@@ -118,6 +126,7 @@ export async function fetchPostSingle(postSlug: string) {
 }
 
 export async function fetchSettings() {
+  const revalidate = 60;
   try {
     const posts = await client.fetch(
       groq`[
@@ -172,7 +181,8 @@ export async function fetchSettings() {
             "button": button,
           }
         }
-      ]`
+    ]`,
+      { next: { revalidate } }
     );
     return posts;
   } catch (error) {
@@ -180,7 +190,9 @@ export async function fetchSettings() {
     return null;
   }
 }
+
 export async function fetchContactInfo() {
+  const revalidate = 60;
   try {
     const posts = await client.fetch(
       groq`
@@ -197,8 +209,9 @@ export async function fetchContactInfo() {
             "copyright": copyright
           }
         }
-      `
-    , { next: { revalidate: 60 } });
+      `,
+      { next: { revalidate } }
+    );
     return posts;
   } catch (error) {
     console.error("Error fetching projects data:", error);
